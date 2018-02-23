@@ -123,6 +123,13 @@ function aurora_theme_scripts() {
 		true
 	);
 
+	/**
+	 * Hello Aurora.
+	 * 
+	 * TODO: Remove.
+	 */
+	wp_enqueue_script( 'hello-aurora', AURORA_THEME_URL . 'js/hello-aurora.js', array(), true );
+
 	// Comment reply script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
