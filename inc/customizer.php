@@ -5,6 +5,7 @@
  * @package Aurora_Theme
  */
 
+add_action( 'customize_register', 'aurora_theme_customize_register' );
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
@@ -26,7 +27,6 @@ function aurora_theme_customize_register( $wp_customize ) {
 		) );
 	}
 }
-add_action( 'customize_register', 'aurora_theme_customize_register' );
 
 /**
  * Render the site title for the selective refresh partial.
@@ -46,10 +46,18 @@ function aurora_theme_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
+add_action( 'customize_preview_init', 'aurora_theme_customize_preview_js' );
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function aurora_theme_customize_preview_js() {
-	wp_enqueue_script( 'aurora-theme-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+
+	// Customizer script.
+	wp_enqueue_script(
+		'aurora-theme-customizer',
+		AURORA_THEME_URL . '/js/customizer.js',
+		array( 'customize-preview' ),
+		AURORA_THEME_VERSION,
+		true
+	);
 }
-add_action( 'customize_preview_init', 'aurora_theme_customize_preview_js' );
