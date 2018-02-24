@@ -1,0 +1,2 @@
+# Don't lint files in the docs directory.
+docs

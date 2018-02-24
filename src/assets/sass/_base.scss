@@ -1,0 +1,31 @@
+// BASE
+
+html {
+	font-size: $base-font-size + 'px';
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	background-color: $body-background; // stylelint-disable-line order/properties-alphabetical-order
+	color: $text-default-dark;
+	font-family: $base-font-weight;
+	line-height: unitless-calc($base-line-height, $base-font-size);
+}
+
+a {
+	color: $link;
+	transition: color 0.3s ease-in-out;
+
+	&:visited {
+		color: $link-visited;
+	}
+	
+	&:hover {
+		color: $link-hover;
+	}
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}

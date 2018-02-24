@@ -1,0 +1,138 @@
+// UTILITIES
+
+/// Always clear floats.
+///
+/// @example - scss Usage
+///  @include clearfix;
+///
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+	*zoom: 1;
+
+	&:after,
+	&:before {
+		content: ' ';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+/// Removes list delimiters, margin, and padding from `ul` or `ol` elements.
+///
+/// @example - scss Usage
+///  @include list-reset
+@mixin list-reset {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/// Extend an element to the edge of the viewport when the parent has a fixed width.
+///
+/// @example - scss Usage
+///  @include full-width
+///
+/// @link https://css-tricks.com/full-width-containers-limited-width-parents/
+@mixin full-width {
+	left: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	position: relative;
+	right: 50%;
+	width: 100vw;
+}
+
+/// Visually hides text, but text is still available for screen readers. Text is not focusable.
+///
+/// @example - scss Usage
+///  @include screen-reader-text
+@mixin screen-reader-text {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px
+}
+
+/// Visually hides text, but it's still available for screen readers, and is still focusable.
+///
+/// @example - scss Usage
+///  @include screen-reader-text-focusable
+@mixin screen-reader-text-focusable {
+
+	&:focus {
+		border: auto;
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+}
+
+/// Centers a background image, and makes sure it covers its container.
+///
+/// @example - scss Usage
+///  @include image-as-background
+@mixin image-as-background {
+	background-position: center;
+	background-size: cover;
+}
+
+/// Declare the element `height` and `width`.
+///
+/// @param {Number} $width           - The element width.
+/// @param {Number} $height [$width] - The element height.
+///
+/// @example - scss Usage
+///  .el {
+///    @include size(50px, 150px);
+///  }
+///
+/// @example - css Output
+///  .el {
+///    height: 150px;
+///    width: 50px;
+///  }
+///
+/// @example - scss Usage
+///  .el {
+///    @include size(50px);
+///  }
+///
+/// @example - css Output
+///  .el {
+///    height: 50px;
+///    width: 50px;
+///  }
+@mixin size($width, $height) {
+	@if not $height {
+		$height: $width;
+	}
+
+	height: $height;
+	width: $width;
+}
+
+/// Set an aspect ratio on an element.
+///
+/// @param {Number} $width    - The width ratio, this value should be unitless.
+/// @param {Number} $height   - The height ratio, this value should be unitless.
+/// @param {Number} $el-width - The element width.
+///
+/// @example - scss Usage for 3:2 ratio
+///  .el {
+///    @include aspect-ratio(3, 2, 50%);
+///  }
+@mixin aspect-ratio($width, $height, $el-width) {
+	@include size($el-width, 0);
+
+	padding-top: $height / $width * $el-width;
+}

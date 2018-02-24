@@ -1,0 +1,157 @@
+// FUNCTIONS
+
+/// Removes unit from length.
+///
+/// @param  {Number} $number - Number from which to remove unit.
+/// @return {Number}         - Unitless number.
+///
+/// @link   https://css-tricks.com/snippets/sass/strip-unit-function/
+@function strip-unit($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number/ ($number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+/// Get a unitless number from two numbers. Helpful for calculation line height.
+///
+/// @param  {Number} $number                 - Numerator for calculation.
+/// @param  {Number} $base [$base-font-size] - Denominator for calculation.
+/// @return {Number}                         - Number without units.
+@function unitless-calc($number, $base: $base-font-size) {
+
+	@if not unitless($number) {
+		$number: strip-unit($number);
+	}
+
+	@if not unitless($base) {
+		$base: strip-unit($base);
+	}
+
+	@return $number / $base;
+}
+
+/// Convert a pixel value to ems. Pass `$base` for increased accuracy.
+///
+/// @param  {Number} $pxval                  - The pixel value to convert.
+/// @param  {Number} $base [$base-font-size] - The pixel equivalent of ancestor font size.
+/// @return {Number}                         - The `em` font size.
+///
+/// @link   https://github.com/thoughtbot/bourbon/blob/v4-stable/app/assets/stylesheets/functions/_px-to-em.scss
+@function em($pxval, $base: $base-font-size) {
+
+	@if not unitless($pxval) {
+		$pxval: strip-unit($pxval);
+	}
+
+	@if not unitless($base) {
+		$base: strip-unit($base);
+	}
+
+	@return ($pxval / $base) * 1em;
+}
+
+/// Convert a pixel value to rems.
+///
+/// @param  {Number} $pxval - The pixel value to convert.
+/// @return {Number}        - The `rem` font size.
+///
+/// @link   https://github.com/thoughtbot/bourbon/blob/v4-stable/app/assets/stylesheets/functions/_px-to-rem.scss
+@function rem($pxval) {
+
+	@if not unitless($pxval) {
+		$pxval: strip-unit($pxval);
+	}
+
+	@return ($pxval / $base-font-size) * 1rem;
+}
+
+/// Tint a color (add white) by a specified amount.
+///
+/// @param  {Color}  $color  - The color to tint.
+/// @param  {Number} $amount - The amount of white to add.
+/// @return {Color}          - The tinted color.
+@function tint($color, $amount) {
+	@return mix(#fff, $color, $amount);
+}
+
+/// Tone a color (add gray) by a specified amount.
+///
+/// @param  {Color}  $color          - The color to tone.
+/// @param  {Number} $amount         - The amount of gray to add.
+/// @param  {Color}  $gray [#808080] - The gray to mix.
+/// @return {Color}                  - The toned color.
+/// @todo Replace hardcoded gray with global / default specified in `_config.scss`.
+@function tone($color, $amount, $gray: #808080) {
+	@return mix($gray, $color, $amount);
+}
+
+/// Shade a color (add black) by a specified amount.
+///
+/// @param  {Color}  $color  - The color to shade.
+/// @param  {Number} $amount - The amount of black to add.
+/// @return {Color}          - The shaded color.
+@function shade($color, $amount) {
+	@return mix(#000, $color, $amount);
+}
+
+/// Get a z-index from a z-index map.
+///
+/// @param  {String} $index        - The index to get.
+/// @param  {Map}    $z [$z-index] - The map containing z-indeces.
+/// @return {Number}               - The corresponding z-index value.
+@function z($index, $z: $z-index) {
+	@if not map-get($z, $index) {
+		@warn 'No index `#{inspect($index)}` found!';
+	}
+	@return map-get($z, $index);
+}
+
+/// Calculate the luminance of a given color.
+///
+/// @param  {Color}  $color - The color to check.
+/// @return {Number}        - The color's luminance.
+///
+/// @link   https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+@function luminance($color) {
+	$red: red($color) * 0.2126;
+	$green: green($color) * 0.7152;
+	$blue: blue($color) * 0.0722;
+
+	@return $red + $green + $blue;
+}
+
+/// Calculate the contrast between two colors.
+///
+/// @param  {Color}  $color1 - The first color to check.
+/// @param  {Color}  $color2 - The second color to check.
+/// @return {Number}         - The contrast ratio between the two colors.
+///
+/// @link   https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+@function calculate-contrast($color1, $color2) {
+
+	$color1: luminance($color1) + 0.05;
+	$color2: luminance($color2) + 0.05;
+
+	@return max($color1, $color2) / min($color1, $color2);
+}
+
+/// Chooses the color with the best contrast for the base.
+///
+/// @param  {Color} $base-color                  - The color against which to check.
+/// @param  {Color} $light [$text-default-light] - The light color against which to check.
+/// @param  {Color} $dark  [$text-default-dark]  - The dark color against which to check.
+/// @return {Color}                              - The color with the better contrast.
+///
+/// @link   https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+@function contrast($base-color, $light: $text-default-light, $dark: $text-default-dark) {
+	$contrast-light: calculate-contrast($base-color, $light);
+	$contrast-dark: calculate-contrast($base-color, $dark);
+
+	@if ($contrast-light > $contrast-dark) {
+		@return $light;
+	} @else {
+		@return $dark;
+	}
+}

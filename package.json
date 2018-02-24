@@ -1,0 +1,65 @@
+{
+  "name": "aurora-theme",
+  "version": "1.0.0",
+  "description": "A clean, modern React-powered WordPress theme.",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.3",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.9",
+    "css-mqpacker": "^6.0.1",
+    "eslint": "^4.14.0",
+    "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "img-loader": "^2.0.0",
+    "jsdoc": "^3.5.5",
+    "kss": "^3.0.0-beta.18",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.0.10",
+    "prettier": "^1.9.2",
+    "sanitize.scss": "^1.0.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "stylelint": "^8.4.0",
+    "stylelint-config-recommended-scss": "^3.0.0",
+    "stylelint-order": "^0.8.0",
+    "stylelint-scss": "^2.2.0",
+    "stylelint-webpack-plugin": "^0.10.1",
+    "svg-sprite-loader": "^3.6.2",
+    "svgo": "^1.0.3",
+    "svgo-loader": "^2.1.0",
+    "webpack": "^3.10.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
+    "kss": "kss --config kss-config.json",
+    "sassdoc": "sassdoc src/assets/sass/**/*.scss -d docs/sassdoc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carrieforde/Aurora-Theme.git"
+  },
+  "keywords": [
+    "sass",
+    "javascript",
+    "es6",
+    "eslint",
+    "stylelint",
+    "kss",
+    "design-system"
+  ],
+  "author": "Carrie Forde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carrieforde/Aurora-Theme/issues"
+  },
+  "homepage": "https://github.com/carrieforde/Aurora-Theme#readme"
+}
