@@ -101,7 +101,7 @@ function aurora_theme_scripts() {
 	// Main theme CSS.
 	wp_enqueue_style(
 		'aurora-theme-style',
-		AURORA_THEME_URL . 'style.css',
+		AURORA_THEME_URL . 'dist/style.css',
 		AURORA_THEME_VERSION
 	);
 
