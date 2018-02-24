@@ -16,7 +16,7 @@ add_action( 'after_setup_theme', 'aurora_theme_setup' );
  * Set up theme defaults and registers support for various theme features.
  */
 function aurora_theme_setup() {
-	
+
 	// Load the theme translation files.
 	load_theme_textdomain( 'aurora-theme', get_template_directory() . '/languages' );
 
@@ -32,7 +32,7 @@ function aurora_theme_setup() {
 	// Register a primary and social menu.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'aurora-theme' ),
-		'social' => esc_html__( 'Social', 'aurora-theme' ),
+		'social'  => esc_html__( 'Social', 'aurora-theme' ),
 	) );
 
 	// Use HTML5 where possible.

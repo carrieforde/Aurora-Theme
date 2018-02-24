@@ -8,6 +8,7 @@
  *
  * @package Aurora_Theme
  */
+
 ?>
 
 <!DOCTYPE html>
