@@ -75,6 +75,7 @@
   },
   "homepage": "https://github.com/carrieforde/Aurora-Theme#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"
