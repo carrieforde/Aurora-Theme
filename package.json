@@ -73,5 +73,9 @@
   "bugs": {
     "url": "https://github.com/carrieforde/Aurora-Theme/issues"
   },
-  "homepage": "https://github.com/carrieforde/Aurora-Theme#readme"
+  "homepage": "https://github.com/carrieforde/Aurora-Theme#readme",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
 }
