@@ -105,30 +105,14 @@ function aurora_theme_scripts() {
 		AURORA_THEME_VERSION
 	);
 
-	// Theme navagation script.
+	// Theme script bundle.
 	wp_enqueue_script(
 		'aurora-theme-navigation',
-		AURORA_THEME_URL . '/js/navigation.js',
+		AURORA_THEME_URL . '/dist/bundle.js',
 		array(),
 		AURORA_THEME_VERSION,
 		true
 	);
-
-	// Theme skip link focus fix script.
-	wp_enqueue_script(
-		'aurora-theme-skip-link-focus-fix',
-		AURORA_THEME_URL . '/js/skip-link-focus-fix.js',
-		array(),
-		AURORA_THEME_VERSION,
-		true
-	);
-
-	/**
-	 * Hello Aurora.
-	 * 
-	 * TODO: Remove.
-	 */
-	wp_enqueue_script( 'hello-aurora', AURORA_THEME_URL . 'js/hello-aurora.js', array(), true );
 
 	// Comment reply script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
