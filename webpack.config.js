@@ -1,26 +1,18 @@
 const path = require('path'),
-  SRC = path.join(__dirname, 'src/'),
-  NODE_MODULES = path.join(__dirname, 'node_modules/'),
   webpack = require('webpack'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   StyleLintPlugin = require('stylelint-webpack-plugin'),
   BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const config = {
-  entry: './src/app.js',
+  context: __dirname,
+  entry: './src/App.jsx',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   resolve: {
-    modules: [
-      SRC,
-      NODE_MODULES,
-      path.join(SRC, 'assets/scripts'),
-      path.join(SRC, 'assets/sass'),
-      path.join(SRC, 'assets/images'),
-      path.join(SRC, 'assets/icons')
-    ]
+    extensions: ['.js', '.jsx', '.json']
   },
   devtool: 'source-map',
   module: {
@@ -77,13 +69,12 @@ const config = {
       },
       {
         enforce: 'pre',
-        test: /\.js$/,
-        exclude: [/node_modules/],
-        loader: 'eslint-loader'
+        test: /\.jsx$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
       },
       {
-        test: /\.js$/,
-        exclude: [/node_modules/],
+        test: /\.jsx?$/,
         loader: 'babel-loader'
       }
     ]
