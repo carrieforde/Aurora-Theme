@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SkipLink = () => (
-  <a class="skip-link screen-reader-text" href="#content">
+  <a className="skip-link screen-reader-text" href="#content">
     Skip to Content
   </a>
 );
