@@ -52,7 +52,7 @@
     "build": "webpack",
     "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
     "kss": "kss --config kss-config.json",
-    "sassdoc": "sassdoc src/assets/sass/**/*.scss -d docs/sassdoc",
+    "sassdoc": "sassdoc src/assets/sass -d docs/sassdoc",
     "start": "webpack --watch"
   },
   "repository": {
