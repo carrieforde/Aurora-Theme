@@ -11,18 +11,21 @@
 	@each $name, $color in $color-map {
 
 		@if $include-bg {
+
 			.bg-#{$name} {
 				background-color: $color;
 			}
 		}
 
 		@if $include-text {
+
 			.text-#{$name} {
 				color: $color;
 			}
 		}
 
 		@if $include-fill {
+
 			.fill-#{$name} {
 				fill: $color;
 			}

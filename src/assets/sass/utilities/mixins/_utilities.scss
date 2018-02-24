@@ -11,7 +11,7 @@
 
 	&:after,
 	&:before {
-		content: ' ';
+		content: " ";
 		display: table;
 	}
 
@@ -57,10 +57,10 @@
 	overflow: hidden;
 	padding: 0;
 	position: absolute;
-	width: 1px
+	width: 1px;
 }
 
-/// Visually hides text, but it's still available for screen readers, and is still focusable.
+/// Visually hides text, but it"s still available for screen readers, and is still focusable.
 ///
 /// @example - scss Usage
 ///  @include screen-reader-text-focusable
@@ -113,6 +113,7 @@
 ///    width: 50px;
 ///  }
 @mixin size($width, $height) {
+
 	@if not $height {
 		$height: $width;
 	}
@@ -132,6 +133,7 @@
 ///    @include aspect-ratio(3, 2, 50%);
 ///  }
 @mixin aspect-ratio($width, $height, $el-width) {
+
 	@include size($el-width, 0);
 
 	padding-top: $height / $width * $el-width;

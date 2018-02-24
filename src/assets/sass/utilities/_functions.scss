@@ -7,7 +7,9 @@
 ///
 /// @link   https://css-tricks.com/snippets/sass/strip-unit-function/
 @function strip-unit($number) {
-	@if type-of($number) == 'number' and not unitless($number) {
+
+	@if type-of($number) == "number" and not unitless($number) {
+
 		@return $number/ ($number * 0 + 1);
 	}
 
@@ -73,6 +75,7 @@
 /// @param  {Number} $amount - The amount of white to add.
 /// @return {Color}          - The tinted color.
 @function tint($color, $amount) {
+
 	@return mix(#fff, $color, $amount);
 }
 
@@ -82,8 +85,9 @@
 /// @param  {Number} $amount         - The amount of gray to add.
 /// @param  {Color}  $gray [#808080] - The gray to mix.
 /// @return {Color}                  - The toned color.
-/// @todo Replace hardcoded gray with global / default specified in `_config.scss`.
+/// @todo Replace hardcoded gray with default specified in `_config.scss`.
 @function tone($color, $amount, $gray: #808080) {
+
 	@return mix($gray, $color, $amount);
 }
 
@@ -93,6 +97,7 @@
 /// @param  {Number} $amount - The amount of black to add.
 /// @return {Color}          - The shaded color.
 @function shade($color, $amount) {
+
 	@return mix(#000, $color, $amount);
 }
 
@@ -102,16 +107,19 @@
 /// @param  {Map}    $z [$z-index] - The map containing z-indeces.
 /// @return {Number}               - The corresponding z-index value.
 @function z($index, $z: $z-index) {
+
 	@if not map-get($z, $index) {
-		@warn 'No index `#{inspect($index)}` found!';
+
+		@warn "No index `#{inspect($index)}` found!";
 	}
+
 	@return map-get($z, $index);
 }
 
 /// Calculate the luminance of a given color.
 ///
 /// @param  {Color}  $color - The color to check.
-/// @return {Number}        - The color's luminance.
+/// @return {Number}        - The color"s luminance.
 ///
 /// @link   https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
 @function luminance($color) {
@@ -150,8 +158,10 @@
 	$contrast-dark: calculate-contrast($base-color, $dark);
 
 	@if ($contrast-light > $contrast-dark) {
+
 		@return $light;
 	} @else {
+
 		@return $dark;
 	}
 }

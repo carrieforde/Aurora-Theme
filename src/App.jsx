@@ -1,5 +1,5 @@
 /* eslint-disable */
-const sass = require('style.scss');
+const sass = require('./assets/sass/style.scss');
 
 import React from 'react';
 import { render } from 'react-dom';

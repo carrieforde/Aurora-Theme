@@ -1,4 +1,5 @@
 // BUTTONS
+// stylelint-disable max-line-length
 
 /// Generate button variations quickly and easily.
 ///
@@ -38,8 +39,8 @@
 
 /// Generate outline buttons.
 ///
-/// @param {String} $border                                  - The outline button's border.
-/// @param {Color}  $color                                   - The button's text color.
+/// @param {String} $border                                  - The outline button"s border.
+/// @param {Color}  $color                                   - The button"s text color.
 /// @param {String} $border-hover      [$border]             - The hover border.
 /// @param {Color}  $color-hover       [darken($color, 10%)] - The hover text color.
 /// @param {Color}  $background-hover  [transparent]         - The hover background color.
@@ -87,19 +88,19 @@
 
 /// Create different styles of button.
 ///
-/// @param {String} $string ['rounded'] - The type of button to produce.
+/// @param {String} $string ["rounded"] - The type of button to produce.
 /// @todo Consider adding more button styles see [Unicorn Buttons](http://unicorn-ui.com/buttons/builder/) & [these buttons](https://labs.loupbrun.ca/buttons/) are good inspiration.
-@mixin button-style($string: 'rounded') {
-	@if $string == 'rounded' {
+@mixin button-style($string: "rounded") {
+
+	@if $string == "rounded" {
 		border-radius: $base-radius;
-	} @else if $string == 'pill' {
+	} @else if $string == "pill" {
 		border-radius: 50px;
 	} @else {
+
 		@error "`#{inspect($string)}` button type does not exist!";
 	}
 }
-
-
 
 /// Create a hamburger menu button. JavaScript interaction needs to be hooked up separately.
 ///
@@ -107,7 +108,7 @@
 /// @param {Color} $bar-hover - The color of the bars when the button is hovered.
 /// @param {Number} $bar-height - The height of the bars.
 /// @param {Number} $bar-width - The width of the bars.
-/// @param {String} $bar-selector ['.bars'] - The selector used within the button to create the bars.
+/// @param {String} $bar-selector [".bars"] - The selector used within the button to create the bars.
 ///
 /// @example - markup Sample Markup
 ///  <button type="button" class="hamburger">
@@ -119,7 +120,7 @@
 ///  .hamburger {
 ///    @include hamburger-button($color__primary);
 ///  }
-@mixin hamburger-button($bar-color, $bar-hover: $bar-color, $bar-height: 3px, $bar-width: 20px, $bar-selector: '.bars') {
+@mixin hamburger-button($bar-color, $bar-hover: $bar-color, $bar-height: 3px, $bar-width: 20px, $bar-selector: ".bars") {
 	background-color: transparent;
 	max-width: $bar-width;
 	padding: $bar-height * 5 / 2 $bar-width / 2;
@@ -144,20 +145,20 @@
 
 		&:after,
 		&:before {
-			content: '';
+			content: "";
 		}
-		
+
 		// Top bar.
 		&:before {
 			top: $bar-height * -2;
 		}
-		
+
 		// Middle bar.
-		& { // stylelint-disable-line no-duplicate-selectors
+		& { // stylelint-disable-line scss/selector-no-redundant-nesting-selector
 			top: 50%;
 			transform: translateY(-50%);
 		}
-		
+
 		// Bottom bar.
 		&:after {
 			bottom: $bar-height * -2;
@@ -167,7 +168,7 @@
 	&:hover {
 
 		#{$bar-selector} {
-			
+
 			&,
 			&:after,
 			&:before {
@@ -181,7 +182,7 @@
 ///
 /// @param {Color} $bar-color - The active color of bars.
 /// @param {Number} $bar-height - The height of the bars.
-/// @param {String} $bar-selector ['.bars'] - The selector used within the button to create the bars.
+/// @param {String} $bar-selector [".bars"] - The selector used within the button to create the bars.
 ///
 /// @example - scss Sample Usage
 ///  .hamburger {
@@ -191,11 +192,11 @@
 ///       @include hamburger-button-active($color__accent);
 ///     }
 ///  }
-@mixin hamburger-button-active($bar-color, $bar-height: 3px, $bar-selector: '.bars') {
+@mixin hamburger-button-active($bar-color, $bar-height: 3px, $bar-selector: ".bars") {
 
 	#{$bar-selector} {
 
-		& { // stylelint-disable-line no-duplicate-selectors
+		& { // stylelint-disable-line scss/selector-no-redundant-nesting-selector
 			background-color: rgba($bar-color, 0);
 		}
 
@@ -239,7 +240,7 @@
 
 	&:after {
 		color: $x-color;
-		content: '\00D7';
+		content: "\00D7";
 		transition: color 0.3s ease-in-out;
 	}
 
@@ -287,7 +288,7 @@
 	&:before {
 		background-color: $bar-color;
 		bottom: 0;
-		content: '';
+		content: "";
 		display: block;
 		height: $bar-height;
 		left: 0;
@@ -323,11 +324,14 @@
 	}
 
 	@if $include-active {
-		
+
 		@if $active-selector == null {
-			@error '`$include-active` requires `$active-selector` to be specified.';
+
+			@error "`$include-active` requires `$active-selector` to be specified.";
 		} @else {
+
 			#{$active-selector} {
+
 				@include plus-minus-button-active($active-bar-color, $active-background);
 			}
 		}

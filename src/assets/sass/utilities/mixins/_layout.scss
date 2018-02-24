@@ -14,8 +14,7 @@
 /// @param {String} $grid-col-start - The beginning column for the item.
 /// @param {String} $grid-col-end - The ending column for the item.
 @mixin grid-span($grid-col-start, $grid-col-end) {
-	grid-column-end: $grid-col-end;
-	grid-column-start: $grid-col-start;
+	grid-column: $grid-col-start / $grid-col-end;
 }
 
 /// Vertically centers an item with absolute positioning. Make sure parent is `position: relative`.

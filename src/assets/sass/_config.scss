@@ -1,4 +1,5 @@
 // CONFIG
+// stylelint-disable max-line-length
 
 // ====================================
 // COLORS
@@ -6,7 +7,7 @@
 
 // Descriptive colors.
 $palantinate-blue: #0e3cda;
-$blue-de-france: #458DFE;
+$blue-de-france: #458dfe;
 $pastel-orange: #feb645;
 $mojo: #c64536;
 $norway: #9ebe83;
@@ -29,18 +30,19 @@ $color-light-gray: $white-smoke !default;
 $color-dark-gray: $aluminum !default;
 $color-shadow: rgba($black, 0.15);
 
-/// The main colors used throughout the site. This map can be used to automatically add color classes.
+/// The main colors used throughout the site.
+/// This map can be used to automatically add color classes.
 ///
 /// @type Map
 $theme-colors: (
-	'primary': $color-primary,
-	'secondary': $color-secondary,
-	'accent': $color-accent,
-	'success': $color-success,
-	'danger': $color-danger,
-	'light-gray': $color-light-gray,
-	'dark-gray': $color-dark-gray,
-	'shadow': $color-shadow
+	"primary": $color-primary,
+	"secondary": $color-secondary,
+	"accent": $color-accent,
+	"success": $color-success,
+	"danger": $color-danger,
+	"light-gray": $color-light-gray,
+	"dark-gray": $color-dark-gray,
+	"shadow": $color-shadow
 );
 
 // Elements.
@@ -56,9 +58,8 @@ $link-visited: $link;
 // ====================================
 // TYPOGRAPHY
 // ====================================
-
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default; // stylelint-disable-line value-keyword-case
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default; // stylelint-disable-line value-keyword-case
 
 /// Set the `body` font family.
 ///
@@ -70,7 +71,8 @@ $base-font-family: $font-family-sans-serif;
 /// @type Number
 $base-font-size: 16 !default;
 
-/// Set the base line height for the project. This value should be unitless and represent the pixel equivalent.
+/// Set the base line height for the project.
+/// This value should be unitless and represent the pixel equivalent.
 ///
 /// @type Number
 $base-line-height: 24 !default;
@@ -90,7 +92,7 @@ $base-font-weight: 400 !default;
 /// @type Number
 $site-width: 100%;
 
-/// Set the width of the site's content.
+/// Set the width of the site"s content.
 ///
 /// @type Number
 $content-width: 1200px;
