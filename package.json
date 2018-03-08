@@ -51,6 +51,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch",
+    "eslint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "format": "prettier --write --single-quote --print-width=120 \"src/**/*.{js,jsx}\"",
     "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
     "kss": "kss --config kss-config.json",
@@ -77,6 +78,7 @@
   "homepage": "https://github.com/carrieforde/Aurora-Theme#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "npm": "^5.7.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"
