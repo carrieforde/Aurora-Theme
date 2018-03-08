@@ -53,11 +53,13 @@
     "build": "webpack",
     "dev": "webpack --watch",
     "eslint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "eslint:fix": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
     "format": "prettier --write --single-quote \"src/**/*.{js,jsx}\"",
     "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
     "kss": "kss --config kss-config.json",
     "sassdoc": "sassdoc src/assets/sass -d docs/sassdoc",
-    "stylelint": "stylelint \"src/**/*.{scss,css}\""
+    "stylelint": "stylelint \"src/**/*.{scss,css}\"",
+    "stylelint:fix": "stylelint \"src/**/*.{scss,css}\" --fix"
   },
   "repository": {
     "type": "git",
