@@ -1,9 +1,7 @@
-/* eslint-disable */
-const sass = require('./assets/sass/style.scss');
-
 import React from 'react';
 import { render } from 'react-dom';
-import Site from './assets/components/Site';
+import Site from './assets/scripts/Site';
+import './assets/sass/style.scss';
 
 const App = () => <Site />;
 
