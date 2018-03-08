@@ -50,10 +50,11 @@
   },
   "scripts": {
     "build": "webpack",
+    "dev": "webpack --watch",
+    "format": "prettier --write --single-quote --print-width=120 \"src/**/*.{js,jsx}\"",
     "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
     "kss": "kss --config kss-config.json",
-    "sassdoc": "sassdoc src/assets/sass -d docs/sassdoc",
-    "start": "webpack --watch"
+    "sassdoc": "sassdoc src/assets/sass -d docs/sassdoc"
   },
   "repository": {
     "type": "git",

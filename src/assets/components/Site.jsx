@@ -7,10 +7,7 @@ import Four04 from './Four04';
 const Site = () => (
   <div id="page" className="site">
     <SkipLink />
-    <Header
-      title="Aurora Theme"
-      description="A clean, modern React-powered theme."
-    />
+    <Header title="Aurora Theme" description="A clean, modern React-powered theme." />
     <div id="primary" className="content-area">
       <main id="main" className="site-main" role="main">
         <BrowserRouter>
