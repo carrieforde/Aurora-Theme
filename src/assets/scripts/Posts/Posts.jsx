@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAPIData } from './actionCreators';
-import PostCard from './PostCard/PostCard';
+import { getAPIData } from '../redux/actionCreators';
+import PostCard from '../PostCard/PostCard';
 
 class Posts extends Component {
   componentDidMount() {

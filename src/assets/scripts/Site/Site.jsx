@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store';
-import SkipLink from './SkipLink';
-import Header from './Header';
-import Posts from './Posts';
-import Four04 from './Four04';
+import store from '../redux/store';
+import SkipLink from '../SkipLink/SkipLink';
+import Header from '../SiteHeader/SiteHeader';
+import Posts from '../Posts/Posts';
+import Four04 from '../Four04/Four04';
 
 const Site = () => (
   <div id="page" className="site">
