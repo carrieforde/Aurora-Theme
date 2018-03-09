@@ -18,19 +18,8 @@ Aurora Theme is based on Underscores https://underscores.me/, (C) 2012-2017 Auto
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 
-// Config
-@import "config";
-
-// Functions
-@import "utilities/functions";
-
-// Mixins
-@import "utilities/mixins/color";
-@import "utilities/mixins/layout";
-@import "utilities/mixins/utilities";
-@import "utilities/mixins/media-queries";
-@import "utilities/mixins/buttons";
-@import "utilities/mixins/links";
+// Utilities - site variables, functions, and mixins.
+@import "utilities/utilities";
 
 // Reset
 @import "sanitize";
