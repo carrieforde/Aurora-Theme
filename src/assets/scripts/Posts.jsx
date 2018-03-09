@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAPIData } from './actionCreators';
-import Post from './Post';
+import PostCard from './PostCard/PostCard';
 
 class Posts extends Component {
   componentDidMount() {
@@ -9,18 +9,13 @@ class Posts extends Component {
       this.props.getPosts();
     }
   }
-  render() {
-    // console.log('props: ' + this.props.fetchPosts);
 
+  render() {
     let posts;
     if (this.props.isFetched) {
-      console.log(this.props.posts);
-
       posts = this.props.posts.map(post => (
-        <h3 className="cat">{post.title.rendered}</h3>
+        <PostCard key={post.id} {...post} />
       ));
-
-      // posts = this.props.posts;
     } else {
       posts = <h2>Loading...</h2>;
     }
@@ -28,7 +23,6 @@ class Posts extends Component {
       <div>
         <h1>Hello</h1>
         {posts}
-        <Post />
       </div>
     );
   }
