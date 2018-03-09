@@ -16,9 +16,8 @@ export function fetchPosts(posts) {
 export function getAPIData() {
   return dispatch => {
     axios
-      .get('http://aurora.local/wp-json/wp/v2/posts')
+      .get('https://aurorathe.me/wp-json/wp/v2/posts')
       .then(response => {
-        console.log(response.data); // eslint-disable-line no-console
         dispatch(fetchPosts(response.data));
       })
       .catch(error => {
