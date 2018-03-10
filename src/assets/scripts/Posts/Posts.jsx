@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAPIData } from '../redux/actionCreators';
+import { getAPIData, fetchPosts } from '../redux/actionCreators';
 import PostCard from '../PostCard/PostCard';
 
 class Posts extends Component {
@@ -37,7 +37,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   getPosts() {
-    dispatch(getAPIData());
+    dispatch(
+      getAPIData('https://aurorathe.me/wp-json/wp/v2/posts', fetchPosts)
+    );
   }
 });
 

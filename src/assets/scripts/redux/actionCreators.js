@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_POSTS } from './actions';
+import { FETCH_POSTS, FETCH_POST } from './actions';
 
 /**
  * Returns a well-formatted action object.
@@ -12,16 +12,25 @@ export function fetchPosts(posts) {
   return { type: FETCH_POSTS, payload: posts };
 }
 
+export function fetchPost(post) {
+  return { type: FETCH_POST, payload: post[0] };
+}
+
 // will return a thunk. a function that returns a function.
-export function getAPIData() {
+export function getAPIData(url, cb) {
   return dispatch => {
     axios
-      .get('https://aurorathe.me/wp-json/wp/v2/posts')
+      .get(url)
       .then(response => {
-        dispatch(fetchPosts(response.data));
+        dispatch(cb(response.data));
       })
       .catch(error => {
         console.error('axios error', error);
       });
   };
+}
+
+export function getPostFromState(posts, slug) {
+  const post = posts.filter(post => post.slug === slug);
+  return fetchPost(post);
 }
