@@ -16,8 +16,6 @@ class Post extends Component {
   }
 
   render() {
-    console.log(this.props);
-
     let post;
 
     if (this.props.post && this.props.post.slug === this.props.postSlug) {
@@ -43,8 +41,6 @@ class Post extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
-
   return {
     posts: state.posts,
     post: state.post,
