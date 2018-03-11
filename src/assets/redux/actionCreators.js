@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_POSTS, FETCH_POST } from './actions';
+import { FETCH_POSTS, FETCH_POST, SITE_INFO } from './actions';
 
 /**
  * Returns a well-formatted action object.
