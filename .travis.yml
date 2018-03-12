@@ -68,9 +68,9 @@ before_script:
     - if [[ "$SNIFF" == "1" ]]; then npm install -g prettier; fi
     # Install Stylelint, a style linter & fixer.
     # @link https://stylelint.io/
-    - if [[ "$SNIFF" == "1" ]]; then npm install -g stylelint stylelint-config-wordpress stylelint-order stylelint-scss; fi
+    # - if [[ "$SNIFF" == "1" ]]; then npm install -g stylelint stylelint-config-wordpress stylelint-order stylelint-scss; fi
     # Install ESLine, a JavaScript Linter & fixer.
-    - if [[ "$SNIFF" == "1" ]]; then npm install -g eslint eslint-config-prettier eslint-config-react eslint-config-wordpress eslint-plugin-prettier eslint-plugin-react; fi
+    - if [[ "$SNIFF" == "1" ]]; then npm install -g eslint eslint-config-prettier eslint-config-react eslint-config-wordpress eslint-plugin-prettier eslint-plugin-react babel-eslint; fi
 
 # Run test script commands.
 # Default is specific to project language.
@@ -81,7 +81,7 @@ script:
     # Run the theme through Pretter.
     - if [[ "$SNIFF" == "1" ]]; then prettier --write 'src/**/*.{js,jsx}'; fi
     # Run the theme through Stylelint.
-    - if [[ "$SNIFF" == "1" ]]; then stylelint 'src/**/*.{scss,css}' --fix; fi
+    # - if [[ "$SNIFF" == "1" ]]; then stylelint 'src/**/*.{scss,css}' --fix; fi
     # Run the theme through ESLint.
     - if [[ "$SNIFF" == "1" ]]; then eslint 'src/**/*.{js,jsx}' --quiet --fix; fi
     # WordPress Coding Standards.
