@@ -68,9 +68,9 @@ before_script:
     - if [[ "$SNIFF" == "1" ]]; then npm install -g prettier; fi
     # Install Stylelint, a style linter & fixer.
     # @link https://stylelint.io/
-    - if [[ "$SNIFF" == "1" ]]; then npm install -g stylelint; fi
+    - if [[ "$SNIFF" == "1" ]]; then npm install -g stylelint stylelint-config-wordpress stylelint-order stylelint-scss; fi
     # Install ESLine, a JavaScript Linter & fixer.
-    - if [[ "$SNIFF" == "1" ]]; then npm install -g eslint; fi
+    - if [[ "$SNIFF" == "1" ]]; then npm install -g eslint eslint-config-prettier eslint-config-react eslint-config-wordpress eslint-plugin-prettier eslint-plugin-react; fi
 
 # Run test script commands.
 # Default is specific to project language.
