@@ -6,8 +6,8 @@ html {
 
 body {
 	-webkit-font-smoothing: antialiased;
-	background-color: $body-background; // stylelint-disable-line order/properties-alphabetical-order
 	color: $text-default-dark;
+	background-color: $body-background; // stylelint-disable-line order/properties-alphabetical-order
 	font-family: $base-font-family;
 	line-height: unitless-calc($base-line-height, $base-font-size);
 }
