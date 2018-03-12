@@ -80,7 +80,7 @@ script:
     # Search for PHP syntax errors.
     - find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
     # Run the theme through Pretter.
-    - if [[ "$SNIFF" == "1" ]]; then prettier 'src/**/*.{js,jsx}'; fi
+    - if [[ "$SNIFF" == "1" ]]; then prettier --list-different 'src/**/*.{js,jsx}'; fi
     # Run the theme through Stylelint.
     - if [[ "$SNIFF" == "1" ]]; then stylelint 'src/**/*.{scss,css}'; fi
     # Run the theme through ESLint.
