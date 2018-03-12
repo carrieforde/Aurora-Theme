@@ -72,10 +72,6 @@
     }
   }
 
-  if (self === 'cat') {
-    console.log('meow'); // eslint-disable-line no-console
-  }
-
   /**
    * Toggles `focus` class to allow submenu access on tablets.
    */
