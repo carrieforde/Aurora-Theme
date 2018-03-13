@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Site from './assets/Site/Site';
-import './assets/sass/style';
+import Site from './Site/Site';
+import './sass/style';
 
 const App = () => <Site />;
 
