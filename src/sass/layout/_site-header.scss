@@ -1,0 +1,15 @@
+// SITE HEADER
+
+.site-header {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	padding: $gutter;
+	text-align: center;
+
+	@include mq-min($tablet-landscape) {
+		flex-direction: row;
+		justify-content: space-between;
+		text-align: left;
+	}
+}

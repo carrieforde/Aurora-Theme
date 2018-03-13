@@ -29,3 +29,13 @@ img {
 	height: auto;
 	max-width: 100%;
 }
+
+.screen-reader-text {
+
+	@include screen-reader-text;
+
+	&-focusable {
+
+		@include screen-reader-text-focusable;
+	}
+}
