@@ -1,4 +1,4 @@
-import { FETCH_POSTS, FETCH_POST, SITE_INFO } from './actions';
+import { FETCH_POSTS, FETCH_POST } from './actions';
 
 // Define the default state.
 const DEFAULT_STATE = {
@@ -35,8 +35,6 @@ const rootReducer = (state = DEFAULT_STATE, action) => {
       return fetchPosts(state, action);
     case FETCH_POST:
       return fetchPost(state, action);
-    case SITE_INFO:
-      return siteInfo(state, action);
     default:
       return state;
   }
