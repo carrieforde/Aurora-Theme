@@ -14,7 +14,9 @@
 
 get_header(); ?>
 
-<div id="app"></div>
+<div id="primary" class="content-area">
+	<main id="app" class="site-main" role="main"></main>
+</div>
 
 <?php
 get_sidebar();
