@@ -17,5 +17,5 @@ get_header(); ?>
 <div id="app"></div>
 
 <?php
-
+get_sidebar();
 get_footer();
