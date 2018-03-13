@@ -107,7 +107,7 @@ function aurora_theme_scripts() {
 
 	// Theme script bundle.
 	wp_enqueue_script(
-		'aurora-theme-navigation',
+		'aurora-theme-scripts',
 		AURORA_THEME_URL . '/dist/bundle.js',
 		array(),
 		AURORA_THEME_VERSION,
