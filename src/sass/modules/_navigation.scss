@@ -25,7 +25,7 @@
 
 .sub-menu {
 
-	@include slide-down($state: ".menu-item-has-children:hover &" ".menu-item-has-children.focus &");
+	@include slide-down($state: ".menu-item-has-children:hover > &" ".menu-item-has-children.focus > &");
 
 	@include mq-min($tablet-landscape) {
 		position: absolute;
