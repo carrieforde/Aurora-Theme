@@ -55,7 +55,7 @@
     "eslint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "eslint:fix": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
     "format": "prettier --write --single-quote \"src/**/*.{js,jsx}\"",
-    "jsdoc": "jsdoc src/**/*.js -d docs/jsdoc",
+    "jsdoc": "jsdoc src/*.js src/**/*.js -d docs/jsdoc",
     "kss": "kss --config kss-config.json",
     "sassdoc": "sassdoc src/sass -d docs/sassdoc",
     "stylelint": "stylelint \"src/**/*.{scss,css}\"",
