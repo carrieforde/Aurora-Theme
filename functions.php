@@ -114,6 +114,15 @@ function aurora_theme_scripts() {
 		true
 	);
 
+	// Translatable strings and other data for JS.
+	$vars = array(
+		'menu_name' => __( 'Primary Menu', 'aurora-theme' ),
+		'menu_mobile_max' => 900
+	);
+	$vars = apply_filters( 'aurora_theme_vars', $vars );
+
+	wp_localize_script( 'aurora-theme-scripts', 'auroraThemeVars', $vars );
+
 	// Comment reply script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
