@@ -101,14 +101,14 @@ function aurora_theme_scripts() {
 	// Main theme CSS.
 	wp_enqueue_style(
 		'aurora-theme-style',
-		AURORA_THEME_URL . 'style.css',
+		AURORA_THEME_URL . 'dist/main.css',
 		AURORA_THEME_VERSION
 	);
 
 	// Theme script bundle.
 	wp_enqueue_script(
 		'aurora-theme-scripts',
-		AURORA_THEME_URL . '/dist/bundle.js',
+		AURORA_THEME_URL . 'dist/bundle.js',
 		array(),
 		AURORA_THEME_VERSION,
 		true
