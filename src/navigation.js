@@ -1,24 +1,30 @@
+import { Utilities } from './utilities';
+
 /**
  * File navigation.js.
  *
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
-
 export class Navigation {
   constructor() {
-    this.container = '';
+    this.container = document.getElementById('site-navigation');
 
-    this.bindEvents();
+    if (this.container) {
+      this.initNavigation();
+    }
   }
 
-  toggleMobileMenu(container, button, menu) {
-    if (container.classList.contains('toggled')) {
-      container.classList.remove('toggled');
+  toggleMobileMenu() {
+    const button = this.container.querySelector('button'),
+      menu = this.container.querySelector('ul');
+
+    if (this.container.classList.contains('toggled')) {
+      this.container.classList.remove('toggled');
       button.setAttribute('aria-expanded', 'false');
       menu.setAttribute('aria-expanded', 'false');
     } else {
-      container.classList.add('toggled');
+      this.container.classList.add('toggled');
       button.setAttribute('aria-expanded', 'true');
       menu.setAttribute('aria-expanded', 'true');
     }
@@ -41,6 +47,13 @@ export class Navigation {
     }
   }
 
+  // keyboardNavigation(event) {
+  //   const el = event.target;
+  //   let subMenu = Array.from(el.parentElement.children);
+
+  //   console.log(subMenu); // eslint-disable-line no-console
+  // }
+
   initNavigation() {
     const button = this.container.querySelector('button');
 
@@ -55,15 +68,14 @@ export class Navigation {
       return;
     }
 
+    this.container.setAttribute('aria-label', 'Primary Menu');
+    menu.setAttribute('aria-label', 'Primary Menu');
     menu.setAttribute('aria-expanded', 'false');
     if (!menu.classList.contains('nav-menu')) {
       menu.classList.add('nav-menu');
     }
 
-    button.addEventListener(
-      'click',
-      this.toggleMobileMenu(this.container, button, menu)
-    );
+    button.addEventListener('click', this.toggleMobileMenu.bind(this));
 
     const links = menu.querySelectorAll('a');
 
@@ -71,15 +83,7 @@ export class Navigation {
       link.addEventListener('focus', this.toggleFocus, true);
       link.addEventListener('blur', this.toggleFocus, true);
     }
-  }
 
-  bindEvents() {
-    this.container = document.getElementById('site-navigation');
-
-    if (!this.container) {
-      return;
-    }
-
-    this.initNavigation();
+    this.container.addEventListener('keyup', this.keyboardNavigation);
   }
 }
