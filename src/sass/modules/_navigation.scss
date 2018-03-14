@@ -1,0 +1,32 @@
+// NAVIGATION
+
+.primary-menu {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease-in-out;
+
+	@include mq-min($tablet-landscape) {
+		max-height: 100%;
+	}
+
+	.toggled & {
+		max-height: 100vh;
+	}
+}
+
+.menu-toggle {
+
+	@include mq-min($tablet-landscape) {
+		display: none;
+	}
+}
+
+.menu,
+.sub-menu {
+
+	@include list-reset;
+}
+
+.sub-menu {
+	max-height: 0;
+}
