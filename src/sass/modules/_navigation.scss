@@ -1,16 +1,12 @@
 // NAVIGATION
 
 .primary-menu {
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height 0.5s ease-in-out;
+
+	@include slide-down(".toggled &");
 
 	@include mq-min($tablet-landscape) {
 		max-height: 100%;
-	}
-
-	.toggled & {
-		max-height: 100vh;
+		overflow: visible;
 	}
 }
 
@@ -28,5 +24,33 @@
 }
 
 .sub-menu {
-	max-height: 0;
+
+	@include slide-down($state: ".menu-item-has-children:hover &" ".menu-item-has-children.focus &");
+
+	@include mq-min($tablet-landscape) {
+		position: absolute;
+		top: 100%;
+	}
+}
+
+.menu-item-has-children {
+	padding-right: 24px;
+	position: relative;
+
+	&:after {
+		background: url(../icons/chevron-down.svg) no-repeat;
+		content: "";
+		display: block;
+		height: 24px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 24px;
+
+		@supports (mask-image: none) or (-webkit-mask-image: none) {
+			background: none;
+			background-color: currentColor;
+			mask-image: url(../icons/chevron-down.svg);
+		}
+	}
 }
