@@ -1,0 +1,24 @@
+// ICONS
+
+/// Add color to an icon when used as a background.
+/// Provides a default to display the original icon (and color) for browsers that do not support `mask-image`.
+///
+/// @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images
+///
+/// @param {String} $icon - The icon to render.
+/// @param {Color} $color - The desired color of the icon.
+///
+/// @example - scss Sample Usage
+///  @include background-icon(chevron-down, $hotpink);
+///
+/// @TODO Figure out how to get svg-sprite-loader / Webpack to recognize the path from this file.
+@mixin background-icon($icon, $color) {
+
+	background: url(../icons/#{$icon}.svg) no-repeat;
+
+	@supports (mask-image: none) or (-webkit-mask-image: none) {
+		background: none;
+		background-color: $color;
+		mask-image: url(../icons/#{$icon}.svg);
+	}
+}
