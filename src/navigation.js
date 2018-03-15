@@ -21,6 +21,20 @@ export class Navigation {
     this.container = document.getElementById('site-navigation');
     this.menuName = auroraThemeVars.menu_name;
     this.menuMobileMax = auroraThemeVars.menu_mobile_max;
+    this.keyCodes = Object.freeze({
+      TAB: 9,
+      RETURN: 13,
+      ESC: 27,
+      SPACE: 32,
+      PAGEUP: 33,
+      PAGEDOWN: 34,
+      END: 35,
+      HOME: 36,
+      LEFT: 37,
+      UP: 38,
+      RIGHT: 39,
+      DOWN: 40
+    });
     this.utils = new Utilities();
 
     if (this.container) {
@@ -93,6 +107,91 @@ export class Navigation {
     links[0].setAttribute('tabindex', '0');
   }
 
+  keyboardNavigation(event) {
+    const target = event.target,
+      code = event.keyCode,
+      type = event.type;
+
+    let newTarget;
+
+    // Prevent window scroll. Returning here is fine because keyup follows keydown, and will refire this function.
+    if ('keydown' === type && -1 < [39, 37, 38, 40].indexOf(code)) {
+      event.preventDefault();
+      return;
+    }
+
+    switch (code) {
+      // Right arrow.
+      case 39:
+        newTarget = target.parentElement.nextElementSibling;
+
+        if (!newTarget) {
+          newTarget = target.parentElement.parentElement;
+          newTarget = newTarget.querySelector('li');
+        }
+
+        target.setAttribute('tabindex', '-1');
+        target.classList.remove('focus');
+        newTarget = newTarget.querySelector('a');
+        newTarget.setAttribute('tabindex', '0');
+        newTarget.classList.add('focus');
+        newTarget.focus();
+
+        break;
+
+      // Left arrow.
+      case 37:
+        newTarget = target.parentElement.previousElementSibling;
+
+        if (!newTarget) {
+          newTarget = target.parentElement.parentElement;
+          newTarget = newTarget.querySelectorAll('.menu > li');
+          newTarget = newTarget[newTarget.length - 1];
+        }
+
+        target.setAttribute('tabindex', '-1');
+        target.classList.remove('focus');
+        newTarget = newTarget.querySelector('a');
+        newTarget.setAttribute('tabindex', '0');
+        newTarget.classList.add('focus');
+        newTarget.focus();
+
+        break;
+
+      // Up arrow.
+      case 38:
+        break;
+
+      // Down arrow.
+      case 40:
+        // Check if the target has a submenu.
+        const subMenu = target.parentElement.querySelector('.sub-menu');
+
+        if (!subMenu) {
+          console.log(target); // eslint-disable-line no-console
+          newTarget = target.parentElement.nextElementSibling;
+        } else {
+          newTarget = subMenu.querySelector('li');
+          if (!subMenu.parentElement.classList.contains('focus')) {
+            subMenu.parentElement.classList.add('focus');
+            subMenu.parentElement.setAttribute('tabindex', '0');
+            target.setAttribute('tabindex', '-1');
+            target.classList.remove('focus');
+          }
+        }
+
+        newTarget = newTarget.querySelector('a');
+        newTarget.classList.add('focus');
+        newTarget.focus();
+
+        break;
+
+      default:
+        console.log(code); // eslint-disable-line no-console
+        return;
+    }
+  }
+
   toggleMobileMenu() {
     const button = this.container.querySelector('button'),
       menu = this.container.querySelector('ul');
@@ -107,30 +206,6 @@ export class Navigation {
       menu.setAttribute('aria-expanded', 'true');
     }
   }
-
-  toggleFocus(event) {
-    const target = event.target;
-    let ancestor = target.parentElement;
-
-    while (!ancestor.classList.contains('nav-menu')) {
-      if ('LI' === ancestor.tagName) {
-        if (ancestor.classList.contains('focus')) {
-          ancestor.classList.remove('focus');
-        } else {
-          ancestor.classList.add('focus');
-        }
-      }
-
-      ancestor = ancestor.parentElement;
-    }
-  }
-
-  // keyboardNavigation(event) {
-  //   const el = event.target;
-  //   let subMenu = Array.from(el.parentElement.children);
-
-  //   console.log(subMenu); // eslint-disable-line no-console
-  // }
 
   initNavigation() {
     const button = this.container.querySelector('button');
@@ -156,11 +231,7 @@ export class Navigation {
 
     const links = menu.querySelectorAll('a');
 
-    for (const link of links) {
-      link.addEventListener('focus', this.toggleFocus, true);
-      link.addEventListener('blur', this.toggleFocus, true);
-    }
-
     this.container.addEventListener('keyup', this.keyboardNavigation);
+    this.container.addEventListener('keydown', this.keyboardNavigation);
   }
 }
