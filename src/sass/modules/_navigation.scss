@@ -5,6 +5,8 @@
 	@include slide-down(".toggled &");
 
 	@include mq-min($tablet-landscape) {
+		display: flex;
+		justify-content: flex-end;
 		max-height: 100%;
 		overflow: visible;
 	}
@@ -21,6 +23,16 @@
 .sub-menu {
 
 	@include list-reset;
+}
+
+.menu > .menu-item {
+
+	@include mq-min($tablet-landscape) {
+
+		+ .menu-item {
+			margin-left: 20px;
+		}
+	}
 }
 
 .sub-menu {

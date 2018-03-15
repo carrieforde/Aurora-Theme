@@ -16,6 +16,7 @@
 
 		&:hover {
 			max-height: 100vh;
+			overflow: visible;
 		}
 	} @else if (type-of($state) == list) {
 
@@ -25,11 +26,13 @@
 
 				&:hover {
 					max-height: 100vh;
+					overflow: visible;
 				}
 			} @else {
 
 				#{$item} {
 					max-height: 100vh;
+					overflow: visible;
 				}
 			}
 		}
