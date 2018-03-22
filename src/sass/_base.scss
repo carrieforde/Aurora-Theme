@@ -12,6 +12,12 @@ body {
 	line-height: unitless-calc($base-line-height, $base-font-size);
 }
 
+:focus {
+	border: 1px solid $color-primary;
+	box-shadow: 0 0 0 3px rgba($color-accent, 0.3);
+	outline: none;
+}
+
 a {
 	color: $link;
 	transition: color 0.3s ease-in-out;
