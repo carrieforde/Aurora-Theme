@@ -48,6 +48,15 @@ p {
 	margin: 0 0 1.5em;
 }
 
+// Horizontal rule (separator).
+hr {
+	background-color: $gray-chateau;
+	border: none;
+	height: 2px;
+	max-width: 100%;
+	width: rem(200);
+}
+
 // Code.
 code,
 kbd,
@@ -67,6 +76,7 @@ pre {
 	padding: 1em;
 }
 
+// Quotes.
 blockquote,
 .wp-block-quote {
 
