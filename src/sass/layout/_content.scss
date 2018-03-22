@@ -1,0 +1,30 @@
+// CONTENT
+
+.site-content {
+	margin: 0 auto;
+	max-width: 100%;
+	padding: $gutter;
+	width: $site-width;
+
+	@include mq-min($tablet-landscape) {
+		display: grid;
+		grid-gap: $gutter * 2;
+		grid-template-columns: minmax(auto, $content-width) rem(350);
+	}
+}
+
+@supports not (display: grid) {
+
+	@include mq-min($tablet-landscape) {
+
+		.content-area {
+			float: left;
+			width: calc(100% - (350px + 40px));
+		}
+
+		.sidebar {
+			float: right;
+			width: rem(350);
+		}
+	}
+}
