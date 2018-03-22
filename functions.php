@@ -98,6 +98,17 @@ add_action( 'wp_enqueue_scripts', 'aurora_theme_scripts' );
  */
 function aurora_theme_scripts() {
 
+	// Dequeue Gutenberg default styles.
+	wp_deregister_style( 'wp-blocks' );
+
+	// Google fonts.
+	wp_enqueue_style(
+		'aurora-fonts',
+		str_replace( ',', '%2C', '//fonts.googleapis.com/css?family=PT+Mono|PT+Sans:400,400i,700,700i' ),
+		array(),
+		AURORA_THEME_VERSION
+	);
+
 	// Main theme CSS.
 	wp_enqueue_style(
 		'aurora-theme-style',
