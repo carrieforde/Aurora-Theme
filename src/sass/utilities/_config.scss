@@ -129,3 +129,11 @@ $desktop-xl: 1800px;
 /// @type Map
 /// @link https://github.com/minamarkham/sassy-starter/blob/master/src/scss/utilities/_config.scss#L39
 $z-index: (default: 1);
+
+// ====================================
+// TRANSITIONS
+// ====================================
+$timing: 0.3s;
+
+$transition-bg-color: background-color $timing ease-in-out;
+$transition-color: color $timing ease-in-out;

@@ -12,18 +12,14 @@
 ///
 /// @example - scss Sample Usage
 ///  @include button($color__primary, $border__button, $color__accent);
-///
-/// @todo Determine whether color should be passed, or add way to automatically determine color to use (light or dark).
 @mixin button($background, $border: 0, $background-hover: lighten($background, 10%), $border-hover: $border, $background-active: $background-hover, $border-active: $border-hover) {
 	background-color: $background;
 	border: $border;
-	color: $text-default-dark;
 
 	&:focus,
 	&:hover {
 		background-color: $background-hover;
 		border: $border-hover;
-		color: $text-default-dark;
 	}
 
 	&:disabled {
@@ -33,7 +29,6 @@
 	&:active {
 		background-color: $background-active;
 		border: $border-active;
-		color: $text-default-dark;
 	}
 }
 
