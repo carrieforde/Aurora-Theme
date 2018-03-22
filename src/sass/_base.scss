@@ -1,14 +1,14 @@
 // BASE
 
 html {
-	font-size: $base-font-size + "px";
+	font-size: $base-font-size * 1px;
 }
 
 body {
-	-webkit-font-smoothing: antialiased;
 	background-color: $body-background; // stylelint-disable-line order/properties-alphabetical-order
 	color: $text-default-dark;
 	font-family: $base-font-family;
+	-webkit-font-smoothing: antialiased;
 	line-height: unitless-calc($base-line-height, $base-font-size);
 }
 

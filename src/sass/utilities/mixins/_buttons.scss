@@ -279,7 +279,6 @@
 /// @example - scss Sample Usage
 ///  .plus-minus { @include plus-minus-button($color__primary); }
 @mixin plus-minus-button($bar-color, $bar-height: 3px, $bar-width: 20px, $background: transparent, $hover-bar-color: $bar-color, $hover-background: $background, $active-bar-color: $hover-bar-color, $active-background: $hover-background, $include-active: false, $active-selector: null) {
-
 	background-color: $background;
 	padding: $bar-width / 2;
 	position: relative;

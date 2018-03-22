@@ -5,30 +5,37 @@
 // COLORS
 // ====================================
 
-// Descriptive colors.
-$palantinate-blue: #0e3cda;
-$blue-de-france: #458dfe;
-$pastel-orange: #feb645;
-$mojo: #c64536;
-$norway: #9ebe83;
-$black: #222;
-$aluminum: #999;
-$iron: #ccc;
-$gainsboro: #ddd;
-$athens-gray: #eee;
-$white-smoke: #f5f5f5;
-$alabaster: #fbfbfb;
+// Theme colors.
+$bay-of-many: #1f4483;
+$puerto-rico: #58b7a1;
 $white: #fff;
+$mine-shaft: #363a42;
+$white-smoke: #ebecee;
+
+// Secondary colors.
+$biscay: #16305c;
+$hoki: #637da9;
+$veridian: #3e8071;
+$bermuda: #8bcdbe;
+$cinder: #26292e;
+$raven: #73767b;
+$gray-chateau: #a4a5a6;
+$concrete: #f1f2f3;
+$black: #000;
+
+// Utility colors.
+$apple: #54a236;
+$well-read: #b13134;
+$tacha: #dbc15b;
 
 // Main colors.
-$color-primary: $palantinate-blue !default;
-$color-secondary: $blue-de-france !default;
-$color-accent: $pastel-orange !default;
-$color-success: $norway !default;
-$color-danger: $mojo !default;
+$color-primary: $bay-of-many !default;
+$color-accent: $puerto-rico !default;
+$color-success: $apple !default;
+$color-danger: $well-read !default;
 $color-light-gray: $white-smoke !default;
-$color-dark-gray: $aluminum !default;
-$color-shadow: rgba($black, 0.15);
+$color-dark-gray: $raven !default;
+$color-shadow: rgba($cinder, 0.15);
 
 /// The main colors used throughout the site.
 /// This map can be used to automatically add color classes.
@@ -36,7 +43,6 @@ $color-shadow: rgba($black, 0.15);
 /// @type Map
 $theme-colors: (
 	"primary": $color-primary,
-	"secondary": $color-secondary,
 	"accent": $color-accent,
 	"success": $color-success,
 	"danger": $color-danger,
@@ -48,18 +54,18 @@ $theme-colors: (
 // Elements.
 $body-background: $white;
 
-$text-default-dark: $black;
-$text-default-light: $white-smoke;
+$text-default-dark: $mine-shaft;
+$text-default-light: $white;
 
 $link: $color-primary;
-$link-hover: $color-secondary;
+$link-hover: $biscay;
 $link-visited: $link;
 
 // ====================================
 // TYPOGRAPHY
 // ====================================
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default; // stylelint-disable-line value-keyword-case
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default; // stylelint-disable-line value-keyword-case
+$font-family-sans-serif: "PT Sans", sans-serif;
+$font-family-monospace: "PT Mono", monospace;
 
 /// Set the `body` font family.
 ///
@@ -69,19 +75,18 @@ $base-font-family: $font-family-sans-serif;
 /// Set the base (`root`) font size for the project. This should be unitless!
 ///
 /// @type Number
-$base-font-size: 16 !default;
+$base-font-size: 18 !default;
 
 /// Set the base line height for the project.
 /// This value should be unitless and represent the pixel equivalent.
 ///
 /// @type Number
-$base-line-height: 24 !default;
+$base-line-height: 27 !default;
 
 /// Set the base font weight for the project.
 ///
 /// @type {Number|String}
 $base-font-weight: 400 !default;
-
 
 // ====================================
 // SIZES
@@ -102,7 +107,6 @@ $content-width: 1200px;
 /// @type Number
 $gutter: 20px;
 
-
 // ====================================
 // BREAKPOINTS
 // ====================================
@@ -116,7 +120,6 @@ $tablet-landscape: 900px;
 $desktop: 1200px;
 $desktop-xl: 1800px;
 
-
 // ====================================
 // Z-INDEX
 // ====================================
@@ -125,6 +128,4 @@ $desktop-xl: 1800px;
 ///
 /// @type Map
 /// @link https://github.com/minamarkham/sassy-starter/blob/master/src/scss/utilities/_config.scss#L39
-$z-index: (
-	default: 1
-);
+$z-index: (default: 1);

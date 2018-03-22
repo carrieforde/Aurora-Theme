@@ -138,7 +138,6 @@
 ///
 /// @link   https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
 @function calculate-contrast($color1, $color2) {
-
 	$color1: luminance($color1) + 0.05;
 	$color2: luminance($color2) + 0.05;
 
