@@ -60,6 +60,15 @@ function aurora_theme_setup() {
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );
+
+	// Add editor color palette.
+	add_theme_support( 'editor-color-palette',
+		'#1f4483',
+		'#58b7a1',
+		'#fff',
+		'#363a42',
+		'#ebecee'
+	);
 }
 
 add_action( 'after_setup_theme', 'aurora_theme_content_width', 0 );
@@ -99,6 +108,7 @@ add_action( 'wp_enqueue_scripts', 'aurora_theme_scripts' );
 function aurora_theme_scripts() {
 
 	// Dequeue Gutenberg default styles.
+	wp_dequeue_style( 'wp-blocks' );
 	wp_deregister_style( 'wp-blocks' );
 
 	// Google fonts.
