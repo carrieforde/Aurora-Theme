@@ -4,7 +4,8 @@
 [type="submit"],
 [type="reset"],
 button,
-.button {
+.button,
+.wp-block-button__link {
 
 	@include button($color-primary, $background-hover: $biscay);
 
@@ -16,6 +17,7 @@ button,
 	font-weight: 700;
 	letter-spacing: 0.02em;
 	padding: 1em 2em;
+	text-decoration: none;
 	text-transform: uppercase;
 	transition: $transition-bg-color;
 }
