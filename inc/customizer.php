@@ -55,7 +55,7 @@ function aurora_theme_customize_preview_js() {
 	// Customizer script.
 	wp_enqueue_script(
 		'aurora-theme-customizer',
-		AURORA_THEME_URL . '/js/customizer.js',
+		AURORA_THEME_URL . '/src/customizer.js',
 		array( 'customize-preview' ),
 		AURORA_THEME_VERSION,
 		true
