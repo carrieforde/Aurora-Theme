@@ -5,37 +5,33 @@
  *
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */
-
-(function($) {
-  // Site title and description.
-  wp.customize('blogname', function(value) {
-    value.bind(function(to) {
-      $('.site-title a').text(to);
-    });
-  });
-  wp.customize('blogdescription', function(value) {
-    value.bind(function(to) {
-      $('.site-description').text(to);
-    });
+(function() {
+  // Updates the site title.
+  wp.customize('blogname', value => {
+    value.bind(
+      to => (document.querySelector('.site-title a').textContent = to)
+    );
   });
 
-  // Header text color.
-  wp.customize('header_textcolor', function(value) {
-    value.bind(function(to) {
-      if ('blank' === to) {
-        $('.site-title, .site-description').css({
-          clip: 'rect(1px, 1px, 1px, 1px)',
-          position: 'absolute'
-        });
-      } else {
-        $('.site-title, .site-description').css({
-          clip: 'auto',
-          position: 'relative'
-        });
-        $('.site-title a, .site-description').css({
-          color: to
-        });
+  // Hides / unhides site title if logo exists.
+  wp.customize('custom_logo', setting => {
+    setting.bind(logo => {
+      const siteTitle = document.querySelector('.site-title');
+
+      if (logo) {
+        siteTitle.classList.add('screen-reader-text');
+      }
+
+      if (!logo && siteTitle.classList.contains('screen-reader-text')) {
+        siteTitle.classList.remove('screen-reader-text');
       }
     });
   });
-})(jQuery);
+
+  // Updates the site description.
+  wp.customize('blogdescription', value => {
+    value.bind(
+      to => (document.querySelector('.site-description').textContent = to)
+    );
+  });
+})();
