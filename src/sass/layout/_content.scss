@@ -1,25 +1,49 @@
 // CONTENT
 
+.site {
+	margin: 0 auto;
+	max-width: 100%;
+	width: $site-width;
+
+	.boxed & {
+		width: $content-width;
+	}
+}
+
 .site-content {
 	margin: 0 auto;
 	max-width: 100%;
 	padding: $gutter;
-	width: $site-width;
+	width: $content-width;
+
+	.full-width & {
+		width: 100%;
+	}
 
 	@include mq-min($tablet-landscape) {
 		display: grid;
-		grid-gap: $gutter * 2;
-		grid-template-columns: minmax(auto, $content-width) rem(350);
+		grid-column-gap: $gutter * 2;
+		grid-template-columns: minmax(auto, calc(100% - #{$sidebar-width})) $sidebar-width;
 	}
+}
+
+.site-main {
+	max-width: 100%;
+	width: $main-width;
 }
 
 @supports not (display: grid) {
 
 	@include mq-min($tablet-landscape) {
 
+		.site-content {
+
+			@include clearfix;
+		}
+
 		.content-area {
 			float: left;
-			width: calc(100% - (350px + 40px));
+			width: calc(100% - (#{$sidebar-width} + #{$gutter} * 2));
 		}
 
 		.sidebar {

@@ -12,6 +12,11 @@ add_action( 'customize_register', 'aurora_theme_customize_register' );
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function aurora_theme_customize_register( $wp_customize ) {
+
+	// Get the theme defaults.
+	$option_defaults = aurora_theme_get_option_defaults();
+
+	// Set up core controls to use postMessage.
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
@@ -19,7 +24,7 @@ function aurora_theme_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'aurora_theme_options[hide_tagline]',
 		array(
-			'default'           => 0,
+			'default'           => $option_defaults['hide_tagline'],
 			'type'              => 'option',
 			'capability'        => 'edit_theme_options',
 			'sanitize_callback' => 'aurora_theme_validate_checkbox',
@@ -33,6 +38,48 @@ function aurora_theme_customize_register( $wp_customize ) {
 			'label'    => __( 'Hide the site description?', 'aurora-theme' ),
 			'section'  => 'title_tagline',
 			'settings' => 'aurora_theme_options[hide_tagline]',
+		)
+	);
+
+	// Layout settings.
+	$wp_customize->add_section(
+		'aurora_theme_layout_section',
+		array(
+			'title'      => __( 'Layout', 'aurora-theme' ),
+			'priority'   => 22,
+			'capability' => 'edit_theme_options',
+		)
+	);
+
+	// Footer section.
+	$wp_customize->add_section(
+		'aurora_theme_footer_section',
+		array(
+			'title'      => __( 'Footer', 'aurora-theme' ),
+			'priority'   => 140,
+			'capability' => 'edit_theme_options',
+		)
+	);
+
+	// Layout settings.
+	$wp_customize->add_setting(
+		'aurora_theme_options[site_layout]',
+		array(
+			'default'           => $option_defaults['site_layout'],
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			// 'sanitize_callback' => 'aurora_theme_validate_radio_select',
+			'transport'         => 'postMessage',
+		)
+	);
+	$wp_customize->add_control(
+		'aurora_theme_layout_control',
+		array(
+			'type'     => 'radio',
+			'label'    => __( 'Site Layout', 'aurora-theme' ),
+			'section'  => 'aurora_theme_layout_section',
+			'settings' => 'aurora_theme_options[site_layout]',
+			'choices'  => aurora_theme_get_site_layouts(),
 		)
 	);
 

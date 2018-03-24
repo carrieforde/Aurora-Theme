@@ -97,10 +97,17 @@ $base-font-weight: 400 !default;
 /// @type Number
 $site-width: 1600px;
 
-/// Set the width of the site"s content.
+/// Set the width of the site's content.
 ///
 /// @type Number
 $content-width: 1200px;
+
+/// Set the width of the `main` content.
+///
+/// @type Number
+$main-width: 650px;
+
+$sidebar-width: 350px;
 
 /// Set a default gutter width.
 ///

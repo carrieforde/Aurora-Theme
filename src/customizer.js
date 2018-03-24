@@ -48,4 +48,17 @@
       }
     });
   });
+
+  // Update the body class based on selected site layout.
+  wp.customize('aurora_theme_options[site_layout]', setting => {
+    setting.bind(layout => {
+      const body = document.body;
+
+      // First, remove all layout classes.
+      body.classList.remove('boxed', 'boxed-content', 'full-width');
+
+      // Then add the selected class.
+      body.classList.add(layout);
+    });
+  });
 })();
