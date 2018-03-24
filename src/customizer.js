@@ -34,4 +34,18 @@
       to => (document.querySelector('.site-description').textContent = to)
     );
   });
+
+  // Hides / unhides site tagline.
+  wp.customize('aurora_theme_options[hide_tagline]', setting => {
+    setting.bind(hide => {
+      const siteTagline = document.querySelector('.site-description');
+      if (hide) {
+        siteTagline.classList.add('screen-reader-text');
+      }
+
+      if (!hide && siteTagline.classList.contains('screen-reader-text')) {
+        siteTagline.classList.remove('screen-reader-text');
+      }
+    });
+  });
 })();

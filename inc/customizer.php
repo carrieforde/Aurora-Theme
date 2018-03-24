@@ -15,6 +15,27 @@ function aurora_theme_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
+	// Hide tagline.
+	$wp_customize->add_setting(
+		'aurora_theme_options[hide_tagline]',
+		array(
+			'default'           => 0,
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'aurora_theme_validate_checkbox',
+			'transport'         => 'postMessage',
+		)
+	);
+	$wp_customize->add_control(
+		'aurora_theme_options_hide_tagline',
+		array(
+			'type'     => 'checkbox',
+			'label'    => __( 'Hide the site description?', 'aurora-theme' ),
+			'section'  => 'title_tagline',
+			'settings' => 'aurora_theme_options[hide_tagline]',
+		)
+	);
+
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector'        => '.site-title a',

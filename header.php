@@ -29,14 +29,9 @@
 		<div class="site-branding">
 			<?php the_custom_logo(); ?>
 
-			<h1 class="site-title <?php echo esc_attr( has_custom_logo() ? 'screen-reader-text' : '' ); ?>"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php
+			<?php aurora_theme_the_site_title(); ?>
 
-			$_s_description = get_bloginfo( 'description', 'display' );
-			if ( $_s_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $_s_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
+			<?php aurora_theme_the_site_description(); ?>
 		</div>
 
 		<nav id="site-navigation" class="main-navigation">

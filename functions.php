@@ -153,4 +153,8 @@ function aurora_theme_scripts() {
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require AURORA_THEME_PATH . '/inc/customizer.php';
+
+require AURORA_THEME_PATH . 'inc/theme-options.php';
+
+require AURORA_THEME_PATH . 'inc/template-tags.php';
