@@ -7,6 +7,14 @@
  * @package _s
  */
 
+$options = get_option( 'aurora_theme_options' );
+
+// Bail if the user doesn't want to display the sidebar.
+if ( 'no' === $options['site_sidebar'] ) {
+	return;
+}
+
+// Bail if there are no widgets in the sidebar.
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }

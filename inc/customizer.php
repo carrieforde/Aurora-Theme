@@ -83,6 +83,27 @@ function aurora_theme_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Sidebar settings.
+	$wp_customize->add_setting(
+		'aurora_theme_options[site_sidebar]',
+		array(
+			'default'           => $option_defaults['sidebar'],
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			// 'sanitize_callback' => 'aurora_theme_validate_radio_select',
+		)
+	);
+	$wp_customize->add_control(
+		'aurora_theme_site_sidebar_control',
+		array(
+			'type'     => 'radio',
+			'label'    => __( 'Site Layout', 'aurora-theme' ),
+			'section'  => 'aurora_theme_layout_section',
+			'settings' => 'aurora_theme_options[site_sidebar]',
+			'choices'  => aurora_theme_get_sidebar_options(),
+		)
+	);
+
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector'        => '.site-title a',

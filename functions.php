@@ -160,3 +160,5 @@ require AURORA_THEME_PATH . 'inc/theme-options.php';
 require AURORA_THEME_PATH . 'inc/template-tags.php';
 
 require AURORA_THEME_PATH . 'inc/template-functions.php';
+
+// require AURORA_THEME_PATH . 'inc/widget-areas.php';

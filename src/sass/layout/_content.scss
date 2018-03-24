@@ -21,13 +21,32 @@
 	}
 
 	@include mq-min($tablet-landscape) {
-		display: grid;
-		grid-column-gap: $gutter * 2;
-		grid-template-columns: minmax(auto, calc(100% - #{$sidebar-width})) $sidebar-width;
+
+		.left-sidebar &,
+		.right-sidebar & {
+			display: grid;
+			grid-column-gap: $gutter * 2;
+		}
+
+		.left-sidebar & {
+			grid-template-columns: $sidebar-width minmax(auto, calc(100% - #{$sidebar-width}));
+		}
+
+		.right-sidebar & {
+			grid-template-columns: minmax(auto, calc(100% - #{$sidebar-width})) $sidebar-width;
+		}
+	}
+}
+
+.left-sidebar {
+
+	.sidebar {
+		order: -1;
 	}
 }
 
 .site-main {
+	margin: 0 auto;
 	max-width: 100%;
 	width: $main-width;
 }
@@ -44,11 +63,23 @@
 		.content-area {
 			float: left;
 			width: calc(100% - (#{$sidebar-width} + #{$gutter} * 2));
+
+			.no-sidebar & {
+				width: 100%;
+			}
+
+			.left-sidebar & {
+				float: right;
+			}
 		}
 
 		.sidebar {
 			float: right;
-			width: rem(350);
+			width: $sidebar-width;
+
+			.left-sidebar & {
+				float: left;
+			}
 		}
 	}
 }

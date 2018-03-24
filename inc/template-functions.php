@@ -28,6 +28,11 @@ function aurora_theme_body_classes( $classes ) {
 		$classes[] = esc_attr( $options['site_layout'] );
 	}
 
+	// Sidebar classes.
+	if ( isset( $options['site_sidebar'] ) && $options['site_sidebar'] ) {
+		$classes[] = esc_attr( $options['site_sidebar'] ) . '-sidebar';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'aurora_theme_body_classes' );

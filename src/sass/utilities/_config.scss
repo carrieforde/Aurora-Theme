@@ -99,13 +99,15 @@ $site-width: 1600px;
 
 /// Set the width of the site's content.
 ///
+/// The Boxed Content setting will use this variable for the site container.
+///
 /// @type Number
 $content-width: 1200px;
 
 /// Set the width of the `main` content.
 ///
 /// @type Number
-$main-width: 650px;
+$main-width: 100%;
 
 $sidebar-width: 350px;
 

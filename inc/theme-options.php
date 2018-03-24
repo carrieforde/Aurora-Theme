@@ -41,6 +41,17 @@ function aurora_theme_get_site_layouts( $context = '' ) {
 	return apply_filters( 'aurora_theme_site_layouts', $default_layouts, $context );
 }
 
+function aurora_theme_get_sidebar_options( $context = '' ) {
+
+	$sidebar_options = array(
+		'left'  => __( 'Left Sidebar', 'aurora-theme' ),
+		'right' => __( 'Right Sidebar', 'aurora-theme' ),
+		'no'    => __( 'No Sidebar', 'aurora-theme' ),
+	);
+
+	return apply_filters( 'aurora_theme_sidebar_options', $sidebar_options, $context );
+}
+
 /**
  * Sanitize checkbox input.
  *
