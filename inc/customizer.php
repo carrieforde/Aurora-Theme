@@ -61,6 +61,26 @@ function aurora_theme_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'aurora_theme_options[footer_credits]',
+		array(
+			'default'           => $option_defaults['footer_credits'],
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'wp_kses_post',
+			'transport'         => 'postMessage',
+		)
+	);
+	$wp_customize->add_control(
+		'aurora_theme_footer_credits',
+		array(
+			'type'     => 'textarea',
+			'label'    => __( 'Footer Credits', 'aurora-theme' ),
+			'section'  => 'aurora_theme_footer_section',
+			'settings' => 'aurora_theme_options[footer_credits]',
+		)
+	);
+
 	// Layout settings.
 	$wp_customize->add_setting(
 		'aurora_theme_options[site_layout]',

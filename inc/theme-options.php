@@ -18,6 +18,7 @@ function aurora_theme_get_option_defaults() {
 		'site_layout'  => 'boxed-content',
 		'site_sidebar' => 'right-sidebar',
 		'hide_tagline' => 0,
+		'footer_credits' => '',
 	);
 
 	return apply_filters( 'aurora_theme_option_defaults', $defaults );

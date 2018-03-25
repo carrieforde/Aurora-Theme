@@ -61,4 +61,13 @@
       body.classList.add(layout);
     });
   });
+
+  // Update the footer credits.
+  wp.customize('aurora_theme_options[footer_credits]', value => {
+    value.bind(to => {
+      const credits = document.querySelector('.footer-credits');
+
+      credits.textContent = to;
+    });
+  });
 })();
