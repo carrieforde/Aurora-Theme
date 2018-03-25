@@ -1,0 +1,49 @@
+// FOOTER.
+
+.footer-widget-areas,
+.footer-credits {
+	padding: $gutter;
+}
+
+.footer-widget-areas {
+
+	@include mq-min($tablet-landscape) {
+		display: grid;
+		grid-column-gap: $gutter;
+
+		@for $i from 2 through 4 {
+
+			&-#{$i} {
+				$percent: 100% / #{$i};
+				$gap: ($gutter * ($i - 1)) / $i;
+
+				grid-template-columns: repeat($i, calc(#{$percent} - #{$gap}));
+
+				@supports not (display: grid) {
+
+					.footer-widget-area {
+
+						@include clearfix;
+
+						float: left;
+						width: calc(#{$percent} - #{$gap});
+
+						+ .footer-widget-area {
+							margin-left: $gutter;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@supports not (display: grid) {
+
+		@include clearfix;
+	}
+}
+
+.footer-credits {
+	font-size: 0.8em;
+	text-align: center;
+}

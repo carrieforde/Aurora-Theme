@@ -15,10 +15,11 @@
 function aurora_theme_get_option_defaults() {
 
 	$defaults = array(
-		'site_layout'  => 'boxed-content',
-		'site_sidebar' => 'right-sidebar',
-		'hide_tagline' => 0,
-		'footer_credits' => '',
+		'site_layout'         => 'boxed-content',
+		'site_sidebar'        => 'right-sidebar',
+		'hide_tagline'        => 0,
+		'footer_credits'      => '',
+		'footer_widget_areas' => 0,
 	);
 
 	return apply_filters( 'aurora_theme_option_defaults', $defaults );
@@ -51,6 +52,19 @@ function aurora_theme_get_sidebar_options( $context = '' ) {
 	);
 
 	return apply_filters( 'aurora_theme_sidebar_options', $sidebar_options, $context );
+}
+
+function aurora_theme_get_footer_widget_area_options( $context = '' ) {
+
+	$number_of_widgets = array(
+		0 => __( 'None', 'aurora-theme' ),
+		1 => __( 'One', 'aurora-theme' ),
+		2 => __( 'Two', 'aurora-theme' ),
+		3 => __( 'Three', 'aurora-theme' ),
+		4 => __( 'Four', 'aurora-theme' ),
+	);
+
+	return apply_filters( 'aurora_theme_footer_widget_area_options', $number_of_widgets, $context );
 }
 
 /**

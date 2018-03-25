@@ -90,6 +90,10 @@ add_action( 'widgets_init', 'aurora_theme_widgets_init' );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function aurora_theme_widgets_init() {
+
+	$options = get_option( 'aurora_theme_options' );
+
+	// Register the primary sidebar widget areas.
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'aurora-theme' ),
 		'id'            => 'sidebar-1',
@@ -99,6 +103,36 @@ function aurora_theme_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	// Maybe register the footer footer widget areas.
+	if ( isset( $options['footer_widget_areas'] ) && $options['footer_widget_areas'] ) {
+
+		// WordPress doesn't translate a %d to one, so we'll register it separately.
+		if ( 1 === $options['footer_widget_areas'] ) {
+
+			register_sidebar( array(
+				'name'          => esc_html__( 'Footer', 'aurora-theme' ),
+				'id'            => 'footer-widget-area',
+				'description'   => __( 'Shows in the site footer.', 'aurora-theme' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			) );
+		} else {
+
+			register_sidebars( (int) $options['footer_widget_areas'], array(
+				/* translators: the number (instance) of the footer widget area */
+				'name'          => esc_html__( 'Footer %d', 'aurora-theme' ),
+				'id'            => 'footer-widget-area',
+				'description'   => __( 'Shows in the site footer.', 'aurora-theme' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			) );
+		}
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'aurora_theme_scripts' );

@@ -61,6 +61,28 @@ function aurora_theme_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Footer widget areas.
+	$wp_customize->add_setting(
+		'aurora_theme_options[footer_widget_areas]',
+		array(
+			'default' => $option_defaults['footer_widget_areas'],
+			'type' => 'option',
+			'capability' => 'edit_theme_options',
+			// 'sanitize_callback' => 'aurora_theme_validate_radio_select',
+		)
+	);
+	$wp_customize->add_control(
+		'aurora_theme_footer_widget_areas_control',
+		array(
+			'type'     => 'select',
+			'label'    => __( 'Number of Footer Widget Areas', 'aurora-theme' ),
+			'section'  => 'aurora_theme_footer_section',
+			'settings' => 'aurora_theme_options[footer_widget_areas]',
+			'choices'  => aurora_theme_get_footer_widget_area_options(),
+		)
+	);
+
+	// Footer credits.
 	$wp_customize->add_setting(
 		'aurora_theme_options[footer_credits]',
 		array(
@@ -107,7 +129,7 @@ function aurora_theme_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'aurora_theme_options[site_sidebar]',
 		array(
-			'default'           => $option_defaults['sidebar'],
+			'default'           => $option_defaults['site_sidebar'],
 			'type'              => 'option',
 			'capability'        => 'edit_theme_options',
 			// 'sanitize_callback' => 'aurora_theme_validate_radio_select',

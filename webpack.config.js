@@ -90,7 +90,7 @@ module.exports = {
     new BrowserSyncPlugin({
       files: '**/*.php',
       injectChanges: true,
-      proxy: 'http://aurora.local'
+      proxy: 'http://aurora.test'
     })
   ]
 };
