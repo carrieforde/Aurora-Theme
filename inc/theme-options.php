@@ -30,6 +30,7 @@ function aurora_theme_get_option_defaults() {
  *
  * @since 1.0.0
  *
+ * @param string $context The context to which the site layout options apply.
  * @return array The default layout options.
  */
 function aurora_theme_get_site_layouts( $context = '' ) {
@@ -43,6 +44,12 @@ function aurora_theme_get_site_layouts( $context = '' ) {
 	return apply_filters( 'aurora_theme_site_layouts', $default_layouts, $context );
 }
 
+/**
+ * Returns an array of site sidebar options.
+ *
+ * @param string $context The context to which the sidebar options apply.
+ * @return array The array of options.
+ */
 function aurora_theme_get_sidebar_options( $context = '' ) {
 
 	$sidebar_options = array(
@@ -54,6 +61,12 @@ function aurora_theme_get_sidebar_options( $context = '' ) {
 	return apply_filters( 'aurora_theme_sidebar_options', $sidebar_options, $context );
 }
 
+/**
+ * Returns an array of widget count options.
+ *
+ * @param string $context The context to which the number of widgets applies.
+ * @return array The array of options.
+ */
 function aurora_theme_get_footer_widget_area_options( $context = '' ) {
 
 	$number_of_widgets = array(
@@ -86,7 +99,7 @@ function aurora_theme_validate_checkbox( $checked ) {
  *
  * @since 1.0.0
  *
- * @param string $input The slug to sanitize.
+ * @param string               $input The slug to sanitize.
  * @param WP_Customize_Setting $setting The setting instance.
  *
  * @return string Sanitized slug if the choice is valid; otherwise, the default.

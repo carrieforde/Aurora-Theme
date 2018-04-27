@@ -24,7 +24,9 @@ function aurora_theme_get_site_title() {
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 	</h1>
 
-	<?php return ob_get_clean();
+	<?php
+
+	return ob_get_clean();
 }
 
 /**
@@ -51,11 +53,15 @@ function aurora_theme_get_site_description() {
 		$classes .= ' screen-reader-text';
 	}
 
-	ob_start(); ?>
+	ob_start();
 
-	<p class="site-description <?php echo esc_attr( $classes ); ?>"><?php bloginfo( 'description' ) ?></p>
+	?>
 
-	<?php return ob_get_clean();
+	<p class="site-description <?php echo esc_attr( $classes ); ?>"><?php bloginfo( 'description' ); ?></p>
+
+	<?php
+
+	return ob_get_clean();
 }
 
 /**
@@ -68,7 +74,7 @@ function aurora_theme_the_site_description() {
 
 /**
  * Build the footer credits markup.
- * 
+ *
  * @since 1.0.0
  */
 function aurora_theme_get_footer_credits() {
@@ -80,13 +86,17 @@ function aurora_theme_get_footer_credits() {
 		return;
 	}
 
-	ob_start() ?>
+	ob_start();
+
+	?>
 
 	<div class="footer-credits">
 		<?php echo wp_kses_post( $options['footer_credits'] ); ?>
 	</div>
 
-	<?php return ob_get_clean();
+	<?php
+
+	return ob_get_clean();
 }
 
 /**

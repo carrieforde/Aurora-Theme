@@ -79,7 +79,6 @@ pre {
 // Quotes.
 blockquote,
 .wp-block-quote {
-
 	// Styles only for the "default" style, i.e. Style 1.
 	&:not(.is-large):not(.wp-block-pullquote) {
 		border-image: linear-gradient(to bottom, $color-primary, $color-accent);

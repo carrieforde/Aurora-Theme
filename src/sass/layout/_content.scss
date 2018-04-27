@@ -29,6 +29,7 @@
 		}
 
 		.left-sidebar & {
+
 			grid-template-columns: $sidebar-width minmax(auto, calc(100% - #{$sidebar-width}));
 		}
 
