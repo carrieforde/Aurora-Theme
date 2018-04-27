@@ -3,7 +3,7 @@
 .site-header {
 	align-items: center;
 	display: flex;
-	flex-direction: column;
+	flex-flow: column wrap;
 	padding: $gutter;
 	text-align: center;
 

@@ -146,3 +146,17 @@ $timing: 0.3s;
 
 $transition-bg-color: background-color $timing ease-in-out;
 $transition-color: color $timing ease-in-out;
+
+// ====================================
+// SOCIAL LINKS
+// ====================================
+$social-links: (
+	"codepen",
+	"facebook",
+	"github",
+	"gitlab",
+	"instagram",
+	"linkedin",
+	"twitter",
+	"youtube",
+);

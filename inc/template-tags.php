@@ -106,3 +106,25 @@ function aurora_theme_the_footer_credits() {
 
 	echo aurora_theme_get_footer_credits(); // WPCS: XSS OK.
 }
+
+/**
+ * Display the social media links menu.
+ */
+function aurora_theme_the_social_menu() {
+
+	?>
+
+	<nav id="social-navigation" class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'aurora-theme' ); ?>">
+		<?php
+			wp_nav_menu( array(
+				'theme_location' => 'social',
+				'menu_class'     => 'social-links-menu',
+				'depth'          => 1,
+				'link_before'    => '<span class="screen-reader-text">',
+				'link_after'     => '</span>',
+			) );
+		?>
+	</nav>
+
+	<?php
+}

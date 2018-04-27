@@ -12,7 +12,7 @@
 ///  @include background-icon(chevron-down, $hotpink);
 ///
 /// @TODO Figure out how to get svg-sprite-loader / Webpack to recognize the path from this file.
-@mixin background-icon($icon, $color) {
+@mixin background-icon($icon, $color: currentColor) {
 	background: url(../icons/#{$icon}.svg) no-repeat;
 
 	@supports (mask-image: none) or (-webkit-mask-image: none) {

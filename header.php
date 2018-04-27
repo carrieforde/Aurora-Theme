@@ -26,6 +26,8 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'aurora-theme' ); ?></a>
 
 	<header id="masthead" class="site-header">
+		<?php do_action( 'aurora_theme_social_links_header' ); ?>
+
 		<div class="site-branding">
 			<?php the_custom_logo(); ?>
 

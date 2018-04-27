@@ -41,6 +41,52 @@ function aurora_theme_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Display social media links.
+	$wp_customize->add_section(
+		'aurora_theme_social_links_display',
+		array(
+			'title'       => __( 'Social Links Display Options', 'aurora-theme' ),
+			'description' => __( 'Choose where to show the social links.', 'aurora-theme' ),
+			'panel'       => 'nav_menus',
+		)
+	);
+	$wp_customize->add_setting(
+		'aurora_theme_options[display_social_links_header]',
+		array(
+			'default'           => $option_defaults['display_social_links_header'],
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'aurora_theme_validate_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'aurora_theme_options_display_social_links_header',
+		array(
+			'type'     => 'checkbox',
+			'label'    => __( 'Display social links in the header?', 'aurora-theme' ),
+			'section'  => 'aurora_theme_social_links_display',
+			'settings' => 'aurora_theme_options[display_social_links_header]',
+		)
+	);
+	$wp_customize->add_setting(
+		'aurora_theme_options[display_social_links_footer]',
+		array(
+			'default'           => $option_defaults['display_social_links_footer'],
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'aurora_theme_validate_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'aurora_theme_options_display_social_links_footer',
+		array(
+			'type'     => 'checkbox',
+			'label'    => __( 'Display social links in the footer?', 'aurora-theme' ),
+			'section'  => 'aurora_theme_social_links_display',
+			'settings' => 'aurora_theme_options[display_social_links_footer]',
+		)
+	);
+
 	// Layout settings.
 	$wp_customize->add_section(
 		'aurora_theme_layout_section',

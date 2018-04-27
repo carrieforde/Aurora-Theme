@@ -15,11 +15,13 @@
 function aurora_theme_get_option_defaults() {
 
 	$defaults = array(
-		'site_layout'         => 'boxed-content',
-		'site_sidebar'        => 'right-sidebar',
-		'hide_tagline'        => 0,
-		'footer_credits'      => '',
-		'footer_widget_areas' => 0,
+		'site_layout'                 => 'boxed-content',
+		'site_sidebar'                => 'right-sidebar',
+		'hide_tagline'                => 0,
+		'footer_credits'              => '',
+		'footer_widget_areas'         => 0,
+		'display_social_links_header' => 0,
+		'display_social_links_footer' => 0,
 	);
 
 	return apply_filters( 'aurora_theme_option_defaults', $defaults );
@@ -114,4 +116,3 @@ function aurora_theme_validate_radio_select( $input, $setting ) {
 	// If the input is a valid key, return it; otherwise, return the default.
 	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 }
-

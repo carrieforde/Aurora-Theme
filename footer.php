@@ -56,6 +56,8 @@
 		<?php endif; ?>
 
 		<?php aurora_theme_the_footer_credits(); ?>
+
+		<?php do_action( 'aurora_theme_social_links_footer' ); ?>
 	</footer>
 </div><!-- #page -->
 

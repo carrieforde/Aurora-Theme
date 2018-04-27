@@ -1,0 +1,53 @@
+// SOCIAL LINKS
+.social-navigation {
+
+	.site-header & {
+		flex: 0 0 100%;
+	}
+}
+
+.social-links-menu {
+	display: flex;
+	padding: 0;
+
+	.site-header & {
+		justify-content: flex-end;
+		margin: 0 0 $gutter / 2 0;
+	}
+
+	.site-footer & {
+		justify-content: center;
+		margin: $gutter / 2 0 $gutter 0;
+	}
+
+	.menu-item {
+
+		+ .menu-item {
+			margin-left: $gutter;
+		}
+	}
+
+	a {
+		display: inline-block;
+		height: rem(24);
+		width: rem(24);
+
+		@each $network in $social-links {
+
+			&[href*="#{$network}"] {
+
+				@include background-icon(#{$network});
+			}
+		}
+
+		&[href*="mailto"] {
+
+			@include background-icon(mail);
+		}
+
+		&[href*="tel"] {
+
+			@include background-icon(phone);
+		}
+	}
+}
