@@ -10,8 +10,12 @@
 ///
 /// @example - scss Sample Usage
 ///  @include hover($color__primary, $color__accent);
-@mixin hover($color, $color-hover, $color-active: $color-hover, $color-visited: $color) {
+@mixin link($color, $color-hover, $color-active: $color-hover, $color-visited: $color) {
 	color: $color;
+
+	&:visited {
+		color: $color-visited;
+	}
 
 	&:focus,
 	&:hover {
@@ -20,10 +24,6 @@
 
 	&:active {
 		color: $color-active;
-	}
-
-	&:visited {
-		color: $color-visited;
 	}
 }
 
@@ -43,7 +43,7 @@
 ///  @include decorative-link($color__primary, $color__accent, $content: "\00BB", $after-color: $color__accent);
 @mixin decorative-link($color, $color-hover, $color-active: $color-hover, $color-visited: $color, $content: "\2192", $after-color: $color, $after-color-hover: $after-color, $after-color-active: $after-color, $after-color-visited: $after-color) {
 
-	@include hover($color, $color-hover, $color-active, $color-visited);
+	@include link($color, $color-hover, $color-active, $color-visited);
 
 	&:after {
 		color: $after-color;
