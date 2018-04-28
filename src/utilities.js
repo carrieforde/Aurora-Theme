@@ -378,4 +378,32 @@ export class Utilities {
 
     return string.replace(/[&<>"'/]/g, s => HTMLEntityMap[s]);
   }
+
+  formatPostDate(date) {
+    const dateOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+
+    let localeDate = new Date(date);
+
+    return localeDate.toLocaleDateString('en-us', dateOptions);
+  }
+
+  getPostCategories(terms) {
+    const categories = [];
+
+    terms[0].forEach(category => {
+      categories.push({
+        id: category.id,
+        slug: category.slug,
+        name: category.name
+      });
+    });
+
+    return categories;
+  }
 } // end Utilities
+
+export default Utilities;
