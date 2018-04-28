@@ -18,19 +18,6 @@ body {
 	outline: none;
 }
 
-a {
-	color: $link;
-	transition: color 0.3s ease-in-out;
-
-	&:visited {
-		color: $link-visited;
-	}
-
-	&:hover {
-		color: $link-hover;
-	}
-}
-
 img {
 	height: auto;
 	max-width: 100%;
