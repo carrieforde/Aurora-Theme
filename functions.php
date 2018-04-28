@@ -171,8 +171,9 @@ function aurora_theme_scripts() {
 
 	// Translatable strings and other data for JS.
 	$vars = array(
-		'menu_name' => __( 'Primary Menu', 'aurora-theme' ),
+		'menu_name'       => __( 'Primary Menu', 'aurora-theme' ),
 		'menu_mobile_max' => 900,
+		'root_url'        => home_url( '/' ),
 	);
 	$vars = apply_filters( 'aurora_theme_vars', $vars );
 

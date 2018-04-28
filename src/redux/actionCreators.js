@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_POSTS, FETCH_POST, SITE_INFO } from './actions';
+import { ROOT_URL, FETCH_POSTS, FETCH_POST } from './actions';
 
 /**
  * Returns a well-formatted action object.
@@ -17,10 +17,10 @@ export function fetchPost(post) {
 }
 
 // will return a thunk. a function that returns a function.
-export function getAPIData(url, cb) {
+export function getAPIData(endpoint, cb) {
   return dispatch => {
     axios
-      .get(url)
+      .get(`${ROOT_URL}/wp-json/${endpoint}`)
       .then(response => {
         dispatch(cb(response.data));
       })
