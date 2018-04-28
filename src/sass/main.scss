@@ -1,10 +1,15 @@
 // MAIN
 
-// Utilities - site variables, functions, and mixins.
-@import "utilities/utilities";
+// Aurora Utilities.
+@import "aurora-utilities";
 
 // Reset
 @import "sanitize";
+
+// Config
+@import "config";
+@import "utilities/mixins/effects";
+@import "utilities/mixins/icons";
 
 // Base
 @import "base";

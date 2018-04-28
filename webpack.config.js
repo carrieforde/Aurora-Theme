@@ -43,7 +43,10 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: {
-                includePaths: ['node_modules/sanitize.scss'],
+                includePaths: [
+                  'node_modules/sanitize.scss',
+                  'node_modules/aurora-utilities/sass'
+                ],
                 sourceMap: true
               }
             }
