@@ -1,0 +1,15 @@
+// SPINNER
+
+@keyframes spin {
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.spinner {
+	animation: spin 3.5s linear infinite;
+	display: block;
+	margin: rem(100) auto 0;
+	stroke: $color-accent;
+}

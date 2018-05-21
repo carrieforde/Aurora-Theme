@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAPIData, fetchPosts } from '../redux/actionCreators';
+import Spinner from '../Spinner';
 import Post from './Post';
 
 class Posts extends Component {
@@ -18,11 +19,12 @@ class Posts extends Component {
   }
 
   render() {
+    const { isFetched } = this.props;
     let posts;
-    if (this.props.isFetched) {
+    if (isFetched) {
       posts = this.props.posts.map(post => <Post key={post.id} {...post} />);
     } else {
-      posts = <h2>Loading...</h2>;
+      posts = <Spinner />;
     }
     return <div>{posts}</div>;
   }
