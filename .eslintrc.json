@@ -1,16 +1,19 @@
 {
   "extends": [
     "wordpress",
+    "plugin:react/recommended",
     "prettier",
-    "prettier/react"
+    "plugin:prettier/recommended"
   ],
   "plugins": [
+    "flowtype",
     "prettier"
   ],
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "parser": "babel-eslint",
   "parserOptions": {
