@@ -1,9 +1,16 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAPIData, fetchPosts } from '../redux/actionCreators';
 import Post from './Post';
 
 class Posts extends Component {
+  props: {
+    isFetched: boolean,
+    getPosts: Function,
+    posts: Array<Object>
+  };
+
   componentDidMount() {
     if (!this.props.isFetched) {
       this.props.getPosts();

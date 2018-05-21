@@ -1,7 +1,8 @@
+// @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Categories = props => {
+const Categories = (props: { categories: Array<Object> }) => {
   const { categories } = props;
 
   return (

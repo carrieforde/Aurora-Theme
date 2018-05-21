@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Utilities from '../utilities';
@@ -5,7 +6,14 @@ import Categories from './Categories';
 
 const utils = new Utilities();
 
-const Post = props => {
+const Post = (props: {
+  id: number,
+  date: string,
+  slug: string,
+  title: Object,
+  excerpt: Object,
+  _embedded: Object
+}) => {
   const { id, date, slug, title, excerpt, _embedded } = props;
   let image,
     categories = utils.getPostCategories(_embedded['wp:term']);
