@@ -4,7 +4,7 @@ const path = require('path'),
   BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
   SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
-module.exports = {
+const config = {
   context: __dirname,
   entry: './src/App.jsx',
   output: {
@@ -97,3 +97,21 @@ module.exports = {
     })
   ]
 };
+
+if ('production' === process.env.NODE_ENV) {
+  config.devtool = false;
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
+  );
+  config.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        comparisons: false
+      }
+    })
+  );
+}
+
+module.exports = config;
