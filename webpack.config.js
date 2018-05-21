@@ -1,9 +1,9 @@
-const webpack = require('webpack');
-(path = require('path')),
-  (ExtractTextPlugin = require('extract-text-webpack-plugin')),
-  (StyleLintPlugin = require('stylelint-webpack-plugin')),
-  (BrowserSyncPlugin = require('browser-sync-webpack-plugin')),
-  (SpriteLoaderPlugin = require('svg-sprite-loader/plugin'));
+const webpack = require('webpack'),
+  path = require('path'),
+  ExtractTextPlugin = require('extract-text-webpack-plugin'),
+  StyleLintPlugin = require('stylelint-webpack-plugin'),
+  BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
+  SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 const config = {
   context: __dirname,
