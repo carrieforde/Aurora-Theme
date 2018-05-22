@@ -1,3 +1,4 @@
+// @flow
 import { FETCH_POSTS, FETCH_POST } from './actions';
 
 // Define the default state.
@@ -29,7 +30,7 @@ const fetchPost = (state, action) =>
  * @param {object} action The action object.
  * @returns {object} A state object.
  */
-const rootReducer = (state = DEFAULT_STATE, action) => {
+const rootReducer = (state: Object = DEFAULT_STATE, action: Object) => {
   switch (action.type) {
     case FETCH_POSTS:
       return fetchPosts(state, action);
