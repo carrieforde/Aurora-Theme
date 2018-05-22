@@ -11,7 +11,7 @@ a {
 
 	&--arrow {
 
-		@include decorative-link($color-primary, $color-accent);
+		@include decorative-link("\2192", $link, $link-hover, $color-visited: $link-visited);
 
 		font-weight: 700;
 		text-decoration: none;
