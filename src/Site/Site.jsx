@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -13,7 +14,7 @@ const Site = () => (
         <Route exact path="/" component={Posts} />
         <Route
           path="/:slug"
-          component={props => {
+          component={(props: { match: Object }) => {
             const slug = props.match.params.slug;
             return <Post postSlug={slug} {...props} />;
           }}

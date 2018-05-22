@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
@@ -5,38 +6,50 @@ import {
   getPostFromState,
   fetchPost
 } from '../redux/actionCreators';
+import Spinner from '../Spinner';
 
 class Post extends Component {
+  props: {
+    isFetched: boolean,
+    postSlug: string,
+    post: Object,
+    posts: Array<Object>,
+    getPost: Function,
+    getStoredPost: Function
+  };
+
   componentDidMount() {
-    if (!this.props.isFetched) {
-      this.props.getPost(this.props.postSlug);
+    const { isFetched, postSlug, posts, getPost, getStoredPost } = this.props;
+    if (!isFetched) {
+      getPost(postSlug);
     } else {
-      this.props.getStoredPost(this.props.posts, this.props.postSlug);
+      getStoredPost(posts, postSlug);
     }
   }
 
   render() {
-    let post;
+    const { post, postSlug } = this.props;
+    let renderedPost;
 
-    if (this.props.post && this.props.post.slug === this.props.postSlug) {
-      post = (
+    if (post && post.slug === postSlug) {
+      renderedPost = (
         <article className="post">
           <header className="post__header">
-            <h1 className="post__title">{this.props.post.title.rendered}</h1>
+            <h1 className="post__title">{post.title.rendered}</h1>
           </header>
           <div
             className="post__content"
             dangerouslySetInnerHTML={{
-              __html: this.props.post.content.rendered
+              __html: post.content.rendered
             }}
           />
         </article>
       );
     } else {
-      post = <h2>Loading...</h2>;
+      renderedPost = <Spinner />;
     }
 
-    return post;
+    return renderedPost;
   }
 }
 
@@ -48,14 +61,9 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: Function) => ({
   getPost(postSlug) {
-    dispatch(
-      getAPIData(
-        `https://aurorathe.me/wp-json/wp/v2/posts/?slug=${postSlug}`,
-        fetchPost
-      )
-    );
+    dispatch(getAPIData(`wp/v2/posts/?slug=${postSlug}`, fetchPost));
   },
   getStoredPost(posts, postSlug) {
     dispatch(getPostFromState(posts, postSlug));
