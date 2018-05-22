@@ -5,13 +5,13 @@ import { getAPIData, fetchPosts } from '../redux/actionCreators';
 import Spinner from '../Spinner';
 import Post from './Post';
 
-class Posts extends Component {
-  props: {
-    isFetched: boolean,
-    getPosts: Function,
-    posts: Array<Object>
-  };
+type Props = {
+  isFetched: boolean,
+  getPosts: Function,
+  posts: Array<Object>
+};
 
+class Posts extends Component<Props> {
   componentDidMount() {
     if (!this.props.isFetched) {
       this.props.getPosts();
@@ -37,7 +37,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: Function) => ({
   getPosts() {
     dispatch(getAPIData('wp/v2/posts?_embed', fetchPosts));
   }

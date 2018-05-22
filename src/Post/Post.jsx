@@ -8,16 +8,16 @@ import {
 } from '../redux/actionCreators';
 import Spinner from '../Spinner';
 
-class Post extends Component {
-  props: {
-    isFetched: boolean,
-    postSlug: string,
-    post: Object,
-    posts: Array<Object>,
-    getPost: Function,
-    getStoredPost: Function
-  };
+type Props = {
+  isFetched: boolean,
+  postSlug: string,
+  post: Object,
+  posts: Array<Object>,
+  getPost: Function,
+  getStoredPost: Function
+};
 
+class Post extends Component<Props> {
   componentDidMount() {
     const { isFetched, postSlug, posts, getPost, getStoredPost } = this.props;
     if (!isFetched) {
