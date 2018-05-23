@@ -1,0 +1,12 @@
+// PAGINATION
+
+.pagination {
+	display: flex;
+	justify-content: space-between;
+	margin-top: $gutter * 2;
+	padding: $gutter 0;
+
+	.button--next {
+		margin-left: auto;
+	}
+}

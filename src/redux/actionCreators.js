@@ -1,6 +1,11 @@
 // @flow
 import axios from 'axios';
-import { ROOT_URL, FETCH_POSTS, FETCH_POST } from './actions';
+import {
+  ROOT_URL,
+  FETCH_POSTS,
+  FETCH_POST,
+  CURRENT_POST_PAGE
+} from './actions';
 
 /**
  * Returns a well-formatted action object.
@@ -22,6 +27,10 @@ export function fetchPosts(response: Object) {
 
 export function fetchPost(post: Array<Object>) {
   return { type: FETCH_POST, payload: post[0] };
+}
+
+export function setCurrentPostPage(page: number) {
+  return { type: CURRENT_POST_PAGE, payload: page };
 }
 
 // will return a thunk. a function that returns a function.

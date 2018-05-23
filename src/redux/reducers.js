@@ -1,5 +1,5 @@
 // @flow
-import { FETCH_POSTS, FETCH_POST } from './actions';
+import { FETCH_POSTS, FETCH_POST, CURRENT_POST_PAGE } from './actions';
 
 // Define the default state.
 const DEFAULT_STATE = {
@@ -7,7 +7,8 @@ const DEFAULT_STATE = {
   post: null,
   isFetched: false,
   totalPosts: 0,
-  totalPages: 0
+  totalPages: 0,
+  currentPage: 0
 };
 
 // Takes in state an action, and returns a new state.
@@ -29,6 +30,9 @@ const fetchPosts = (state, action) =>
 const fetchPost = (state, action) =>
   Object.assign({}, state, { post: action.payload });
 
+const setCurrentPostPage = (state, action) =>
+  Object.assign({}, state, { currentPage: action.payload });
+
 /**
  * Using the action.type, determine whether to update state, or get current state.
  *
@@ -42,6 +46,8 @@ const rootReducer = (state: Object = DEFAULT_STATE, action: Object) => {
       return fetchPosts(state, action);
     case FETCH_POST:
       return fetchPost(state, action);
+    case CURRENT_POST_PAGE:
+      return setCurrentPostPage(state, action);
     default:
       return state;
   }
