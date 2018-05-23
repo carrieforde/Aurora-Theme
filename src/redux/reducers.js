@@ -6,7 +6,8 @@ const DEFAULT_STATE = {
   posts: [],
   post: null,
   isFetched: false,
-  siteInfo: {}
+  totalPosts: 0,
+  totalPages: 0
 };
 
 // Takes in state an action, and returns a new state.
@@ -18,7 +19,12 @@ const DEFAULT_STATE = {
  * @returns {object} The new state.
  */
 const fetchPosts = (state, action) =>
-  Object.assign({}, state, { posts: action.payload, isFetched: true });
+  Object.assign({}, state, {
+    posts: action.payload.posts,
+    isFetched: true,
+    totalPosts: action.payload.totalPosts,
+    totalPages: action.payload.totalPages
+  });
 
 const fetchPost = (state, action) =>
   Object.assign({}, state, { post: action.payload });

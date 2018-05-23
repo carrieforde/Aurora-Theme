@@ -9,8 +9,15 @@ import { ROOT_URL, FETCH_POSTS, FETCH_POST } from './actions';
  * @param {any} posts The posts.
  * @returns {object}
  */
-export function fetchPosts(posts: Array<Object>) {
-  return { type: FETCH_POSTS, payload: posts };
+export function fetchPosts(response: Object) {
+  return {
+    type: FETCH_POSTS,
+    payload: {
+      posts: response.data,
+      totalPosts: response.headers['x-wp-total'],
+      totalPages: response.headers['x-wp-totalpages']
+    }
+  };
 }
 
 export function fetchPost(post: Array<Object>) {
@@ -23,7 +30,7 @@ export function getAPIData(endpoint: string, cb: Function) {
     axios
       .get(`${ROOT_URL}/wp-json/${endpoint}`)
       .then(response => {
-        dispatch(cb(response.data));
+        dispatch(cb(response));
       })
       .catch(error => {
         console.error('axios error', error);
