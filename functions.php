@@ -62,13 +62,84 @@ function aurora_theme_setup() {
 	) );
 
 	// Add editor color palette.
-	add_theme_support( 'editor-color-palette',
-		'#1f4483',
-		'#58b7a1',
-		'#fff',
-		'#363a42',
-		'#ebecee'
+	add_theme_support(
+		'editor-color-palette',
+		array(
+			array(
+				'name'  => __( 'Royal Blue', 'aurora-theme' ),
+				'slug'  => 'primary',
+				'color' => '#2f80e8',
+			),
+			array(
+				'name'  => __( 'Fire Bush', 'aurora-theme' ),
+				'slug'  => 'accent',
+				'color' => '#e8982f',
+			),
+			array(
+				'name'  => __( 'Malachite', 'aurora-theme' ),
+				'slug'  => 'success',
+				'color' => '#30e83a',
+			),
+			array(
+				'name'  => __( 'Sunflower', 'aurora-theme' ),
+				'slug'  => 'warning',
+				'color' => '#e8e830',
+			),
+			array(
+				'name'  => __( 'Alizarin Crimson', 'aurora-theme' ),
+				'slug'  => 'danger',
+				'color' => '#e82f30',
+			),
+			array(
+				'name'  => __( 'Black', 'aurora-theme' ),
+				'slug'  => 'black',
+				'color' => '#000',
+			),
+			array(
+				'name'  => __( 'Shark', 'aurora-theme' ),
+				'slug'  => 'neutral-900',
+				'color' => '#27292b',
+			),
+			array(
+				'name'  => __( 'Abbey', 'aurora-theme' ),
+				'slug'  => 'neutral-700',
+				'color' => '#4e5156',
+			),
+			array(
+				'name'  => __( 'Oslo Gray', 'aurora-theme' ),
+				'slug'  => 'neutral',
+				'color' => '#868b92',
+			),
+			array(
+				'name'  => __( 'Iron', 'aurora-theme' ),
+				'slug'  => 'neutral-300',
+				'color' => '#dadbdd',
+			),
+			array(
+				'name'  => __( 'Alabaster', 'aurora-theme' ),
+				'slug'  => 'neutral-100',
+				'color' => '#fafafa',
+			),
+			array(
+				'name'  => __( 'White', 'aurora-theme' ),
+				'slug'  => 'white',
+				'color' => '#fff',
+			),
+		)
 	);
+
+	// Disable custom colors from editor palette.
+	add_theme_support( 'disable-custom-colors' );
+
+	// Enable editor styles.
+	add_theme_support( 'editor-styles' );
+
+	// Enqueue editor styles.
+	add_theme_support( 'dist/frontend.css' );
+
+	// Enable wide & full alignment for editor blocks.
+	add_theme_support( 'align-wide' );
+
 }
 
 add_action( 'after_setup_theme', 'aurora_theme_content_width', 0 );
@@ -179,6 +250,21 @@ function aurora_theme_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+}
+
+add_action( 'enqueue_block_editor_assets', 'aurora_theme_block_assets' );
+/**
+ * Enqueue block editor assets.
+ */
+function aurora_theme_block_assets() {
+
+	// Block styles.
+	wp_enqueue_style(
+		'aurora-theme-style',
+		AURORA_THEME_URL . 'dist/frontend.css',
+		array(),
+		AURORA_THEME_VERSION
+	);
 }
 
 /**
