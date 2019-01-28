@@ -1,7 +1,0 @@
-{
-  "title": "Aurora Theme",
-  "source": "src/assets/sass/",
-  "destination": "docs/styleguide/",
-  "css": "../../src/main.css",
-  "js": "../../src/app.js"
-}
