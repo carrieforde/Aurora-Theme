@@ -83,4 +83,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Pagination);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Pagination);

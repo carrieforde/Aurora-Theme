@@ -141,10 +141,6 @@ add_action( 'wp_enqueue_scripts', 'aurora_theme_scripts' );
  */
 function aurora_theme_scripts() {
 
-	// Dequeue Gutenberg default styles.
-	wp_dequeue_style( 'wp-blocks' );
-	wp_deregister_style( 'wp-blocks' );
-
 	// Google fonts.
 	wp_enqueue_style(
 		'aurora-fonts',
@@ -156,14 +152,14 @@ function aurora_theme_scripts() {
 	// Main theme CSS.
 	wp_enqueue_style(
 		'aurora-theme-style',
-		AURORA_THEME_URL . 'dist/main.css',
+		AURORA_THEME_URL . 'dist/frontend.css',
 		AURORA_THEME_VERSION
 	);
 
 	// Theme script bundle.
 	wp_enqueue_script(
 		'aurora-theme-scripts',
-		AURORA_THEME_URL . 'dist/bundle.js',
+		AURORA_THEME_URL . 'dist/frontend-bundle.js',
 		array(),
 		AURORA_THEME_VERSION,
 		true

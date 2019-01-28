@@ -62,4 +62,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Posts);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Posts);

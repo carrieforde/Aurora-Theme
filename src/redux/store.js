@@ -7,7 +7,7 @@ const store = createStore(
   compose(
     applyMiddleware(thunk),
     'object' === typeof window &&
-    'undefined' !== typeof window.devToolsExtension
+      'undefined' !== typeof window.devToolsExtension
       ? window.devToolsExtension()
       : f => f
   )
