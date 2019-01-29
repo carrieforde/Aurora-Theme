@@ -1,0 +1,24 @@
+.footer-widget-areas {
+
+	.has-footer-widgets & {
+		display: grid;
+	}
+
+	@include mq-min($tablet-landscape) {
+
+		.footer-widget-areas-2 & {
+			grid-gap: $sp-single;
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.footer-widget-areas-3 & {
+			grid-gap: $sp-single;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.footer-widget-areas-4 {
+			grid-gap: $sp-single;
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}

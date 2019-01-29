@@ -1,0 +1,27 @@
+.alignnone {
+	margin: 0;
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto;
+}
+
+.alignleft {
+	float: left;
+	margin-right: $sp-single;
+}
+
+.alignright {
+	float: right;
+	margin-left: $sp-single;
+}
+
+.alignfull {
+
+	@include full-width;
+}
+
+.alignwide {
+	width: 100%;
+}

@@ -1,0 +1,67 @@
+// ====================================
+// COLORS
+// ====================================
+
+// Descriptive colors.
+$bay-of-many: #1f4483;
+$puerto-rico: #58b7a1;
+$white: #fff;
+$mine-shaft: #363a42;
+$white-smoke: #ebecee;
+
+// Secondary colors.
+$cinder: #26292e;
+$raven: #73767b;
+$gray-chateau: #a4a5a6;
+$concrete: #f1f2f3;
+$black: #000;
+
+// Utility colors.
+$apple: #54a236;
+$well-read: #b13134;
+$tacha: #dbc15b;
+
+// Main colors.
+$color-primary: $bay-of-many !default;
+$color-accent: $puerto-rico !default;
+$color-success: $apple !default;
+$color-danger: $well-read !default;
+$color-light-gray: $white-smoke !default;
+$color-dark-gray: $raven !default;
+$color-shadow: rgba($cinder, 0.15);
+
+/// The main colors used throughout the site. This map can be used to automatically add color classes.
+///
+/// @type Map
+$theme-colors: (
+	"primary": $color-primary,
+	"accent": $color-accent,
+	"success": $color-success,
+	"danger": $color-danger,
+	"light-gray": $color-light-gray,
+	"dark-gray": $color-dark-gray,
+	"shadow": $color-shadow
+);
+
+/// The used within the content editor (editor-palette). This map can be used to automatically add color classes.
+///
+/// @type Map
+$editor-palette: (
+	"bay-of-many": $bay-of-many,
+	"puerto-rico": $puerto-rico,
+	"white": $white,
+	"raven": $raven,
+	"mine-shaft": $mine-shaft
+);
+
+// Elements.
+$body-background: $white;
+
+$text-default-dark: $black;
+$text-default-light: $white-smoke;
+
+$link: $color-primary;
+$link-hover: $color-accent;
+$link-visited: $link;
+
+$form-border: $color-dark-gray;

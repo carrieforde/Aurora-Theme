@@ -1,0 +1,11 @@
+// Editor color palette classes.
+@each $name, $color in $editor-palette {
+
+	.has-#{$name}-color {
+		color: $color !important;
+	}
+
+	.has-#{$name}-background-color {
+		background-color: $color !important;
+	}
+}

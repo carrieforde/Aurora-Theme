@@ -10,6 +10,7 @@ module.exports = {
   context: __dirname,
   entry: {
     frontend: ['babel-polyfill', './src/App.jsx', './src/sass/main.scss'],
+    editor: './src/sass/editor.scss',
     customizer: './src/customizer.js'
   },
   output: {

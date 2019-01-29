@@ -1,0 +1,25 @@
+code,
+kbd,
+pre,
+samp,
+tt,
+var {
+	font-family: $font-family-monospace;
+}
+
+pre {
+	overflow-x: scroll;
+}
+
+a {
+	color: $link;
+	transition: color 0.3s ease-in-out;
+
+	&:visited {
+		color: $link-visited;
+	}
+
+	&:hover {
+		color: $link-hover;
+	}
+}

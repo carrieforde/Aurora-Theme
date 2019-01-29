@@ -42,3 +42,51 @@
 @import "07-utilities/utilities.colors";
 @import "07-utilities/utilities.font-sizes";
 @import "07-utilities/utilities.screen-reader-text";
+
+.editor-post-title__block,
+.editor-default-block-appender,
+.editor-block-list__block {
+	max-width: $page-content-width;
+}
+
+.editor-post-title__block,
+.editor-default-block-appender,
+.editor-block-list__block,
+p {
+	color: inherit;
+	font-family: $base-font-family;
+	-webkit-font-smoothing: antialiased;
+	font-weight: $base-font-weight;
+	line-height: unitless-calc($base-line-height, $base-font-size);
+	word-wrap: break-word;
+}
+
+.editor-block-list__block[data-align="wide"] {
+	max-width: $content-width;
+}
+
+.editor-block-list__block[data-align="full"] {
+	max-width: none;
+}
+
+code,
+kbd,
+pre,
+samp,
+tt,
+var {
+	font-family: $font-family-monospace;
+}
+
+a {
+	color: $link;
+	transition: color 0.3s ease-in-out;
+
+	&:visited {
+		color: $link-visited;
+	}
+
+	&:hover {
+		color: $link-hover;
+	}
+}

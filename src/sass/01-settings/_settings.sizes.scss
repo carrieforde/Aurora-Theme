@@ -1,0 +1,25 @@
+/// Set the max width of the site.
+///
+/// @type Number
+$site-width: 1600px;
+
+/// Set the width of the site's content.
+///
+/// @type Number
+$content-width: 1200px;
+
+/// Set the width of the site's [optional] sidebar.
+///
+/// @type Number
+$sidebar-width: 300px;
+
+/// Set the width of the page content.
+///
+/// @type Number
+$page-content-width: 660px;
+
+// Spacing
+$sp-half: 0.5rem;
+$sp-single: 1rem;
+$sp-double: 2rem;
+$sp-triple: 3rem;

@@ -1,0 +1,34 @@
+.main-navigation {
+
+	@include mq-max($tablet-landscape) {
+		background-color: $white;
+		bottom: 0;
+		max-width: 100%;
+		padding: $sp-triple $sp-single $sp-single;
+		position: fixed;
+		right: 0;
+		top: 0;
+		transform: translate(rem(400));
+		transition: $transition-transform;
+		width: rem(400);
+		z-index: z(main-navigation);
+
+		&.toggled {
+			transform: translateX(0);
+		}
+	}
+}
+
+.menu-open {
+	overflow: hidden;
+
+	.menu-screen {
+		background-color: $color-shadow;
+		bottom: 0;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: z(menu-screen);
+	}
+}

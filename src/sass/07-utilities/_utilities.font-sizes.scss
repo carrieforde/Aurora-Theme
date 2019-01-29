@@ -1,0 +1,6 @@
+@each $name, $size in $editor-font-sizes {
+
+	.has-#{$name}-font-size {
+		font-size: rem($size) !important;
+	}
+}

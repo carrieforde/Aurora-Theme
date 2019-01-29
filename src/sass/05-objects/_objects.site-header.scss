@@ -1,0 +1,11 @@
+.site-header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	overflow-x: hidden;
+	position: relative;
+
+	@include mq-min($tablet-landscape) {
+		overflow: visible;
+	}
+}

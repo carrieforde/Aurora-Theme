@@ -1,0 +1,8 @@
+.wp-caption {
+	max-width: 100%;
+
+	&-text {
+		margin-bottom: $sp-single;
+		margin-top: $sp-half;
+	}
+}

@@ -1,0 +1,12 @@
+/// Keep your sanity while managing your z-indeces.
+///
+/// @type Map
+/// @link https://github.com/minamarkham/sassy-starter/blob/master/src/scss/utilities/_config.scss#L39
+$z-index: (
+	mobile-menu-full-screen: -10,
+	default: 1,
+	menu-screen: 2,
+	main-navigation: 3,
+	menu-toggle: 4,
+	sub-menu: 5
+);

@@ -30,36 +30,50 @@ function aurora_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	// Register a primary and social menu.
-	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'aurora-theme' ),
-		'social'  => esc_html__( 'Social', 'aurora-theme' ),
-	) );
+	register_nav_menus(
+		array(
+			'primary' => esc_html__( 'Primary', 'aurora-theme' ),
+			'social'  => esc_html__( 'Social', 'aurora-theme' ),
+		)
+	);
 
 	// Use HTML5 where possible.
-	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
+	add_theme_support(
+		'html5',
+		array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'aurora_theme_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+	add_theme_support(
+		'custom-background',
+		apply_filters(
+			'aurora_theme_custom_background_args',
+			array(
+				'default-color' => 'ffffff',
+				'default-image' => '',
+			)
+		)
+	);
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	// Add support for core custom logo.
-	add_theme_support( 'custom-logo', array(
-		'height'      => 250,
-		'width'       => 250,
-		'flex-width'  => true,
-		'flex-height' => true,
-	) );
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'      => 250,
+			'width'       => 250,
+			'flex-width'  => true,
+			'flex-height' => true,
+		)
+	);
 
 	// Add editor color palette.
 	add_theme_support(
@@ -135,7 +149,7 @@ function aurora_theme_setup() {
 	add_theme_support( 'editor-styles' );
 
 	// Enqueue editor styles.
-	add_theme_support( 'dist/frontend.css' );
+	add_theme_support( 'dist/editor.css' );
 
 	// Enable wide & full alignment for editor blocks.
 	add_theme_support( 'align-wide' );
@@ -165,15 +179,17 @@ function aurora_theme_widgets_init() {
 	$options = get_option( 'aurora_theme_options' );
 
 	// Register the primary sidebar widget areas.
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'aurora-theme' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'aurora-theme' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar', 'aurora-theme' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'aurora-theme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 
 	// Maybe register the footer footer widget areas.
 	if ( isset( $options['footer_widget_areas'] ) && $options['footer_widget_areas'] ) {
@@ -181,27 +197,32 @@ function aurora_theme_widgets_init() {
 		// WordPress doesn't translate a %d to one, so we'll register it separately.
 		if ( 1 === $options['footer_widget_areas'] ) {
 
-			register_sidebar( array(
-				'name'          => esc_html__( 'Footer', 'aurora-theme' ),
-				'id'            => 'footer-widget-area',
-				'description'   => __( 'Shows in the site footer.', 'aurora-theme' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			) );
+			register_sidebar(
+				array(
+					'name'          => esc_html__( 'Footer', 'aurora-theme' ),
+					'id'            => 'footer-widget-area',
+					'description'   => __( 'Shows in the site footer.', 'aurora-theme' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				)
+			);
 		} else {
 
-			register_sidebars( (int) $options['footer_widget_areas'], array(
-				/* translators: the number (instance) of the footer widget area */
-				'name'          => esc_html__( 'Footer %d', 'aurora-theme' ),
-				'id'            => 'footer-widget-area',
-				'description'   => __( 'Shows in the site footer.', 'aurora-theme' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			) );
+			register_sidebars(
+				(int) $options['footer_widget_areas'],
+				array(
+					/* translators: the number (instance) of the footer widget area */
+					'name'          => esc_html__( 'Footer %d', 'aurora-theme' ),
+					'id'            => 'footer-widget-area',
+					'description'   => __( 'Shows in the site footer.', 'aurora-theme' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				)
+			);
 		}
 	}
 }
@@ -212,18 +233,11 @@ add_action( 'wp_enqueue_scripts', 'aurora_theme_scripts' );
  */
 function aurora_theme_scripts() {
 
-	// Google fonts.
-	wp_enqueue_style(
-		'aurora-fonts',
-		str_replace( ',', '%2C', '//fonts.googleapis.com/css?family=PT+Mono|PT+Sans:400,400i,700,700i' ),
-		array(),
-		AURORA_THEME_VERSION
-	);
-
 	// Main theme CSS.
 	wp_enqueue_style(
 		'aurora-theme-style',
 		AURORA_THEME_URL . 'dist/frontend.css',
+		array(),
 		AURORA_THEME_VERSION
 	);
 
@@ -260,8 +274,8 @@ function aurora_theme_block_assets() {
 
 	// Block styles.
 	wp_enqueue_style(
-		'aurora-theme-style',
-		AURORA_THEME_URL . 'dist/frontend.css',
+		'aurora-editor-style',
+		AURORA_THEME_URL . 'dist/editor.css',
 		array(),
 		AURORA_THEME_VERSION
 	);
@@ -270,7 +284,7 @@ function aurora_theme_block_assets() {
 /**
  * Customizer additions.
  */
-require AURORA_THEME_PATH . '/inc/customizer.php';
+require AURORA_THEME_PATH . 'inc/customizer.php';
 
 require AURORA_THEME_PATH . 'inc/theme-options.php';
 
